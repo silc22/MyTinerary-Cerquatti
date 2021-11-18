@@ -1,10 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from  '../components/NavBar'
-
+import Hero from  '../components/Hero'
+import Calltoaction from '../components/Calltoaction'
+import Header from '../components/Header';
 
 function App() {
   return (
-      <NavBar />
+    <>
+      <Header />
+      <Hero />
+      <Calltoaction />
+    </>
   )
 }
 
