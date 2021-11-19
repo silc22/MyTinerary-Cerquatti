@@ -9,7 +9,7 @@ function Header() {
                 <Nav.Link href="#home" className="link-nav">Home</Nav.Link>
                 <Nav.Link href="#link" className="link-nav">Link</Nav.Link>
             </div>
-            <div>
+            <div className="dropdown-nav">
                 <NavDropdown title={<i class="fas fa-user"></i>} className="link-nav" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Sing In</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Log In</NavDropdown.Item>
