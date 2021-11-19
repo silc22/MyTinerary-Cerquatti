@@ -1,15 +1,21 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 
 function Calltoaction() {
     return (
+
+        <div className="section-container">
+           
         <div className="callToAction-container">
-            <div className="container">
-                <Button variant="dark" size="md">
-                    Block level button
-                </Button>
-            </div>
+            <a href="/" className="neon-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Find your next destination
+            </a>
         </div>
+        </div>
+        
     )
 }
 
