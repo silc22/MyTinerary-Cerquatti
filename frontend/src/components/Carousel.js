@@ -10,27 +10,27 @@ export default class CustomSlide extends Component {
     this.state = {
       cities: [
         {nombre:"Dolomitas",
-        pais: "Italia",
+        pais: "Italy",
         src: './cities/italia-dolomitas.jpg'
         },
         {nombre:"Cotswolds",
-        pais: "Inglaterra",
+        pais: "United Kingdom",
         src: './cities/inglaterra-cotswolds.jpg'
         },
         {nombre:"Feroe",
-        pais: "Dinamarca",
+        pais: "Denmark",
         src: './cities/dinamarca-feroe.jpg'
         },
         {nombre:"Sa Foradada",
-        pais: "España",
+        pais: "Spain",
         src: './cities/mallorca.jpg'
         },
         {nombre:"Masái Mara",
-        pais: "Kenia",
+        pais: "Kenya",
         src: './cities/kenia.jpg'
         },
-        {nombre:"Cantón de Zúrich",
-        pais: "Suiza",
+        {nombre:"Kanton Zürich",
+        pais: "Switzerland",
         src: './cities/suiza.jpg'
         },
         {nombre:"San Carlos de Bariloche",
@@ -38,7 +38,7 @@ export default class CustomSlide extends Component {
         src: './cities/argentina.jpg'
         },
         {nombre:"Chiang Mai",
-        pais: "Tailandia",
+        pais: "Tailand",
         src: './cities/tailandia.jpg'
         },
         {nombre:"Bacalar",
@@ -50,7 +50,7 @@ export default class CustomSlide extends Component {
         src: './cities/albania.jpg'
         },
         {nombre:"Leeuwarden",
-        pais: "Paises Bajos",
+        pais: "Netherlands",
         src: './cities/paisesbajos.jpg'
         },
         {nombre:"Mestia",
