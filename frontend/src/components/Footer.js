@@ -7,7 +7,7 @@ function Footer() {
             <div className="footer-nav" variant="dark">
             <div className="links-nav">
                 <Nav.Link href="#home" className="link-nav">Home</Nav.Link>
-                <Nav.Link href="#link" className="link-nav">Link</Nav.Link>
+                <Nav.Link href="#link" className="link-nav">Cities</Nav.Link>
             </div>
         </div>
             <div className="icons-container">

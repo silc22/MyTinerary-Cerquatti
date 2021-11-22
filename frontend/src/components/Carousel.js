@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 
 
+
 export default class CustomSlide extends Component {
         
   constructor (props){
@@ -61,31 +62,58 @@ export default class CustomSlide extends Component {
   } 
 
 
-    render() {
-        const settings = {
-        dots: true,
-        centerMode: true,
-        infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 1,
-        slidesPerRow: 4,
-        autoplay: true,
-        speed: 500,
-        autoplaySpeed: 3000,
-        cssEase: "linear"
-        };
+  render() {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 2000,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      initialSlide: 0,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    };
 
 
     return (
       <div className="carousel-container">
-        <h2>Discover paradises in the world that only a few people know about</h2>
+        <h2>Discover paradises in the world that <span> only a few people</span> know about</h2>
         <Slider {...settings} className="slider-cities">
             {this.state.cities.map((element, index) => (
+              <>
               <div key={index} className="img-container">
-                <img src={element.src}></img>
-                <p>{element.nombre}</p>
-                <p>{element.pais}</p>
+                <img src={element.src} alt="Paradises"></img>
               </div>
+              <div className="text-container">
+                  <p>{element.nombre} - {element.pais}</p>
+              </div>
+              </>
             ))}
         </Slider>
       </div>

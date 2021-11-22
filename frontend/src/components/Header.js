@@ -7,11 +7,11 @@ function Header() {
         <div className="costumBg" variant="dark">
             <div className="links-nav">
                 <Nav.Link href="#home" className="link-nav">Home</Nav.Link>
-                <Nav.Link href="#link" className="link-nav">Link</Nav.Link>
+                <Nav.Link href="#link" className="link-nav">Cities</Nav.Link>
             </div>
             <div className="dropdown-nav">
                 <NavDropdown title={<i class="fas fa-user"></i>} className="link-nav" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Sing In</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.1">Sign In</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Log In</NavDropdown.Item>
                 </NavDropdown>
             </div>

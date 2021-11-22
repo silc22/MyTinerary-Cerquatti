@@ -230,7 +230,7 @@ header p {
 /* ESTILO COMPONENTE CARROUSEL */
 .carousel-container{
   max-width: 100%;
-  max-height: 60vh;
+  min-height: 60vh;
   color: white;
   background-color: rgb(7,7,7);
   display: flex;
@@ -239,31 +239,45 @@ header p {
   align-items: center;
 }
 
+.carousel-container h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+
+.carousel-container span{
+  font-weight: normal;
+  color:rgb(185, 45, 185)
+}
+
 .slider-cities{
   width: 80%;
-  height: 100%;
+  min-height: 80%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
 
-.img-container {
-  max-width: 25%;
-  max-height: 100%;
-  object-fit: cover;
-  
-}
 
 .img-container img{
-  width: 100%;
-  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  width: 99%;
+  max-height: 10rem;
 }
 
+.img-container img:hover{
+  box-shadow: 0 0 12px #f8f8f8;
+  transition: .3s;
+}
 
-
-
-
+.text-container{
+  text-align: center;
+  font-size: 1rem;
+}
 
 
 /* ESTILO COMPONENTE FOOTER */
@@ -275,7 +289,7 @@ footer{
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: 30vh;
+  height: 20vh;
   background-color: rgb(7,7,7);
 }
 
