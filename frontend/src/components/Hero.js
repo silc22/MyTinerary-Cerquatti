@@ -9,7 +9,7 @@ function Hero(){
             <div className="hero">
             <Container className="header-container">
                 <header>
-                    <img src="./logo-mt.png" alt="Paradises"></img>
+                    <img src="./logo-mt.png" alt="MyTinerary Logo"></img>
                     <h1>Mytinerary</h1>
                     <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
                 </header>

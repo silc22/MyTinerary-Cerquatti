@@ -8,6 +8,7 @@
 
 /* ESTILO COMPONENTE HEADER */
 .costumBg{
+    
     width: 100vw;
     min-height: 10vh;
     background-color: rgba(255, 255, 255, 0.171);
@@ -22,21 +23,48 @@
     align-items: center;
 }
 
+.logo-container{
+  display: flex;
+  flex: 0 1 auto;
+  padding: 0px 2rem;
+}
+
+.logo-container img{
+  width: 2rem;
+}
+
 .dropdown-nav{
+
+  padding: 0px 2rem;
   display: flex;
   flex: 0 1 auto
 }
 
 .links-nav{
+  font-size: 20px;
   display: flex;
   flex-flow: row nowrap;
-  flex: 0 1 45%
+  flex: 1 1 100%;
 }
 
 .link-nav{
   color: white !important;
   text-transform: uppercase;
 }
+/* 
+.dropdown-menu{
+  background-color: rgba(255, 255, 255, 0.199) !important;
+}
+
+.dropdown-item{
+  color: white !important;
+  text-align: end !important;
+}
+
+.dropdown-item:hover{
+  background-color: none !important;
+} */
+
 
 .link-nav:hover{
   text-shadow: 0 0 8px white;
@@ -45,9 +73,10 @@
 }
 
 
-.fas{
+.fa-user{
+  font-size: 20px;
   color: white;
-  font-size: large;
+
 }
 
 
@@ -91,7 +120,6 @@ header img{
 }
 
 
-
 @keyframes myAnim {
   0%,
   100% {
@@ -123,19 +151,24 @@ header img{
     transform: rotate(2deg);
   }
 }
-h1{
+
+
+header h1{
+  padding: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-size: 4rem;
 }
 
-h1:hover{
+header h1:hover{
   text-shadow: 0px 0px 15px rgb(243, 251, 247);
   transition: .5s;
 
 }
 
 header p {
-  padding: 5px;
+  text-transform: uppercase;
+  margin: 2rem;
   font-size: 20px;
   letter-spacing: 1px;
 }
