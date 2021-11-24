@@ -29,11 +29,11 @@ export default class CustomSlide extends Component {
         pais: "Kenya",
         src: './cities/kenia.jpg'
         },
-        {nombre:"Kanton Zürich",
+        {nombre:"Zürich",
         pais: "Switzerland",
         src: './cities/suiza.jpg'
         },
-        {nombre:"San Carlos de Bariloche",
+        {nombre:"Bariloche",
         pais: "Argentina",
         src: './cities/argentina.jpg'
         },
@@ -64,7 +64,6 @@ export default class CustomSlide extends Component {
 
   render() {
     var settings = {
-      dots: true,
       infinite: true,
       speed: 2000,
       slidesToShow: 4,
@@ -79,7 +78,6 @@ export default class CustomSlide extends Component {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true
           }
         },
         {
@@ -103,15 +101,16 @@ export default class CustomSlide extends Component {
 
     return (
       <div className="carousel-container">
-        <h2>Discover paradises in the world that <span> only a few people</span> know about</h2>
+        <h2>Popular <span>Mytineraries</span></h2>
         <Slider {...settings} className="slider-cities">
             {this.state.cities.map((element, index) => (
               <>
               <div key={index} className="img-container">
                 <img src={element.src} alt="Paradises"></img>
-              </div>
               <div className="text-container">
-                  <p>{element.nombre} - {element.pais}</p>
+                  <p className="name-city">{element.nombre}</p>
+                  <p>{element.pais}</p>
+              </div>
               </div>
               </>
             ))}

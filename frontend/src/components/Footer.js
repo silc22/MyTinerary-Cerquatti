@@ -7,7 +7,7 @@ function Footer() {
         <footer>
             <div className="footer-nav" variant="dark">
             <div className="links-nav">
-                <Nav.Link  as={Link} to={"/Home"}  className="link-nav">Home</Nav.Link>
+                <Nav.Link  as={Link} to={"/"}  className="link-nav">Home</Nav.Link>
                 <Nav.Link as={Link} to={"/Cities"} className="link-nav">Cities</Nav.Link>
             </div>
         </div>
