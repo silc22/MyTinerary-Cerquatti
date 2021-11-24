@@ -1,10 +1,10 @@
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Cities from "./Cities";
-import Home from "./Home";
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Cities from './pages/Cities';
+import Home from './pages/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {

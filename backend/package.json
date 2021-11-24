@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/silc22/MyTinerary-Cerquatti/issues"
   },
-  "homepage": "https://github.com/silc22/MyTinerary-Cerquatti#readme"
+  "homepage": "https://github.com/silc22/MyTinerary-Cerquatti#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
