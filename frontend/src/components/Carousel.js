@@ -103,8 +103,7 @@ export default class CustomSlide extends Component {
       <div className="carousel-container">
         <h2>Popular <span>Mytineraries</span></h2>
         <Slider {...settings} className="slider-cities">
-            {this.state.cities.map((element, index) => (
-              <>
+            {this.state.cities.map((element, index) => (             
               <div key={index} className="img-container">
                 <img src={element.src} alt="Paradises"></img>
               <div className="text-container">
@@ -112,7 +111,6 @@ export default class CustomSlide extends Component {
                   <p>{element.pais}</p>
               </div>
               </div>
-              </>
             ))}
         </Slider>
       </div>
