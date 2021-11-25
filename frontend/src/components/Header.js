@@ -14,7 +14,7 @@ function Header() {
                 <Nav.Link as={Link} to={"/Cities"} className="link-nav">Cities</Nav.Link>
             </div>
             <div className="dropdown-nav">
-                <NavDropdown title={<i class="fas fa-user"></i>} className="link-nav" id="basic-nav-dropdown">
+                <NavDropdown title={<i className="fas fa-user"></i>} className="link-nav" id="basic-nav-dropdown">
                     <NavDropdown.Item as={Link} to={"/"} >Sign In </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to={"/"}>Log In </NavDropdown.Item>
                 </NavDropdown>

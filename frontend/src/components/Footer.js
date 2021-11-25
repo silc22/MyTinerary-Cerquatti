@@ -12,10 +12,10 @@ function Footer() {
             </div>
         </div>
             <div className="icons-container">
-                <Nav.Link href="/" className="link-social"><i class="fab fa-telegram-plane" id="telegram"></i></Nav.Link>
-                <Nav.Link href="/" className="link-social"><i class="fa fa-twitter" id="twitter"></i></Nav.Link>
-                <Nav.Link href="/" className="link-social"><i class="fab fa-github" id="github"></i></Nav.Link>
-                <Nav.Link href="/" className="link-social"><i class="fab fa-facebook-f" id="facebook"></i></Nav.Link>
+                <Nav.Link href="/" className="link-social"><i className="fab fa-telegram-plane" id="telegram"></i></Nav.Link>
+                <Nav.Link href="/" className="link-social"><i className="fa fa-twitter" id="twitter"></i></Nav.Link>
+                <Nav.Link href="/" className="link-social"><i className="fab fa-github" id="github"></i></Nav.Link>
+                <Nav.Link href="/" className="link-social"><i className="fab fa-facebook-f" id="facebook"></i></Nav.Link>
             </div>
             <p>&copy;Mytinerary | All Rights Reserved</p>
         </footer>

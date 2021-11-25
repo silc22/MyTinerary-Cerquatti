@@ -108,7 +108,7 @@ export default class CustomSlide extends Component {
               <div key={index} className="img-container">
                 <img src={element.src} alt="Paradises"></img>
               <div className="text-container">
-                  <p className="name-city">{element.nombre}</p>
+                  <p>{element.nombre}</p>
                   <p>{element.pais}</p>
               </div>
               </div>
