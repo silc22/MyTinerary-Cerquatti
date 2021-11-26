@@ -8,11 +8,10 @@
 
 /* ESTILO COMPONENTE HEADER */
 .costumBg{
-    
     width: 100vw;
     min-height: 10vh;
-    background-color: rgba(255, 255, 255, 0.171);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.486);
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4962359943977591) 60%, rgba(0,0,0,0) 100%);
     position: fixed;
     top: 0;
     left: 0;
@@ -30,7 +29,7 @@
 }
 
 .logo-container img{
-  width: 2rem;
+  width: 30px;
 }
 
 .dropdown-nav{
@@ -51,19 +50,6 @@
   color: white !important;
   text-transform: uppercase;
 }
-/* 
-.dropdown-menu{
-  background-color: rgba(255, 255, 255, 0.199) !important;
-}
-
-.dropdown-item{
-  color: white !important;
-  text-align: end !important;
-}
-
-.dropdown-item:hover{
-  background-color: none !important;
-} */
 
 
 .link-nav:hover{
@@ -111,10 +97,11 @@ header{
   background-color: rgba(10, 9, 9, 0.322);
   min-width: 60%;
   min-height: 50%;
+  box-shadow: -10px 10px 15px rgb(0, 0, 0);
 }
 
 header img{
-  width: 10%;
+  width: 100px;
   margin-bottom: 2em;
   animation: myAnim 6s ease 1s 1 normal backwards;
 }
@@ -157,7 +144,7 @@ header h1{
   padding: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 4rem;
+  
 }
 
 header h1:hover{
@@ -177,10 +164,14 @@ header p {
 /* ESTILO COMPONENTE CALL-TO-ACTION */
 
 .section-container{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
   background: url(./assetshero/bg-7.jpg) center center/cover no-repeat;
   max-width: 100vw;
   height: 100vh;
-  display: flex;
+  box-shadow: -10px -10px 15px rgb(0, 0, 0);
 }
 
 
@@ -190,6 +181,18 @@ header p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.form-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container Form{
+  min-width: 80%;
 }
 
 
@@ -301,6 +304,7 @@ header p {
   }
 }
 
+
 /* ESTILO COMPONENTE CARROUSEL */
 .carousel-container{
   width: 100%;
@@ -349,13 +353,13 @@ header p {
   transition: .3s;
 }
 
-.text-container{
+.text-container {
   text-align: center;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  border: 1px solid white;
   text-transform: uppercase;
+  color: black;
 }
 
 .name-city{
@@ -423,3 +427,36 @@ footer{
   }
 }
 
+
+/* PAGINA DE CITIES */
+.city-container{
+  padding-top: 5rem;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  background: url(./assetshero/bg-7.jpg) center center/cover no-repeat;
+}
+
+
+.container-card{
+  width: 30rem;
+  margin: 1rem .5rem;
+  background-color: whitesmoke;
+  box-shadow: -10px 10px 15px rgb(0, 0, 0);
+ 
+}
+
+.container-card:hover{
+  box-shadow: -10px 10px 10px rgb(143, 143, 143);
+  transition: .3s;
+}
+
+.city-img-container img{
+  object-fit: cover;
+  width: 100%;
+  height: 35vh;
+  
+}

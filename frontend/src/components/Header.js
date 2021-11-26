@@ -10,8 +10,8 @@ function Header() {
                 <img src="./logo-mt.png" alt="MyTinerary Logo"></img>
             </div>
             <div className="links-nav">
-                <Nav.Link  as={Link} to={"/"}  className="link-nav">Home</Nav.Link>
-                <Nav.Link as={Link} to={"/Cities"} className="link-nav">Cities</Nav.Link>
+                <Nav.Link  as={Link} to="/"  className="link-nav">Home</Nav.Link>
+                <Nav.Link as={Link} to="/cities" className="link-nav">Cities</Nav.Link>
             </div>
             <div className="dropdown-nav">
                 <NavDropdown title={<i className="fas fa-user"></i>} className="link-nav" id="basic-nav-dropdown">

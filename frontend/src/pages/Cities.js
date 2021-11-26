@@ -7,7 +7,7 @@ export default function Cities() {
 
     useEffect(()=>{
         fetch("http://localhost:4000/api/cities")
-        .then(res => res.json)
+        .then(res => res.json())
         .then(data => setCities(data.response.cities))
         .catch(err => console.error(err.message))
     },[])
@@ -15,17 +15,23 @@ export default function Cities() {
 
     return (
         <>
-            {cities.map((element, index) => {
-                return(
-                <div key={index}>
-                    <img src={element.src} alt={element.nombre}></img>
-                <div className="text-container">
-                    <p>{element.nombre}</p>
-                    <p>{element.pais}</p>
+            <div className="city-container">
+            {cities.length > 0 ?
+            cities.map((element) => 
+                (
+                <div className="container-card">
+                    <div key={element.id} className="city-img-container">
+                        <img src={element.src} alt={element.nombre}/>
+                        <div className="name-container">
+                            <p className="name-city">{element.nombre}</p>
+                            <p>{element.pais}</p>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                )
-            })}
+            ))
+            :<h2>Loading...</h2>
+            }
+            </div>
         </>
     )
 }
