@@ -116,7 +116,7 @@ export default class CustomSlide extends Component {
         <h2>Popular <span>Mytineraries</span></h2>
         <Slider {...settings} className="slider-cities">
             {this.state.cities.map((element) => (  
-              <div className="container-card">           
+              <div className="container-card-carousel">           
                 <div key={element.id} className="img-container">
                     <img src={element.src} alt={element.nombre}></img>
                     <div className="text-container">

@@ -11,7 +11,7 @@ function Hero(){
                 <header>
                     <img src="./logo-mt.png" alt="MyTinerary Logo"></img>
                     <h1>Mytinerary</h1>
-                    <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
+                    <p>Find your perfect trip, designed by insiders who know and love their cities</p>
                 </header>
             </Container>
             </div>

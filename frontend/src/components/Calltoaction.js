@@ -18,18 +18,6 @@ function Calltoaction() {
                     Find your next destination
                 </Link>
             </div>
-            <div className="form-container">
-                <form className="d-flex">
-                    <FormControl
-                    variant="sucess"
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    />
-                    <Button variant="outline">Search</Button>
-                </form>
-            </div>
         </div>
         
     )

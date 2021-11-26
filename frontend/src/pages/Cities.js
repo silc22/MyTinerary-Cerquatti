@@ -16,21 +16,26 @@ export default function Cities() {
     return (
         <>
             <div className="city-container">
-            {cities.length > 0 ?
-            cities.map((element) => 
-                (
-                <div className="container-card">
-                    <div key={element.id} className="city-img-container">
-                        <img src={element.src} alt={element.nombre}/>
-                        <div className="name-container">
-                            <p className="name-city">{element.nombre}</p>
-                            <p>{element.pais}</p>
+                <div className="subtitle-container">
+                <h2>Life in <span>Wanderlust</span></h2>
+                </div>
+                <div className="city-container-card">
+                {cities.length > 0 ?
+                cities.map((element) => 
+                    (
+                    <div className="container-card">
+                        <div key={element.id} className="city-img-container">
+                            <img src={element.src} alt={element.nombre}/>
+                            <div className="name-container">
+                                <p className="name-city">{element.nombre}</p>
+                                <p>{element.pais}</p>
+                            </div>
                         </div>
                     </div>
+                ))
+                :<p>Loading...</p>
+                }
                 </div>
-            ))
-            :<h2>Loading...</h2>
-            }
             </div>
         </>
     )
