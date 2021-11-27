@@ -1,42 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from "react-router-dom";
 
+export default class Cities extends Component {
 
-export default function Cities() {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
 
-    const [cities, setCities] = useState([])
+    componentDidMount() {
+        axios.get("http://localhost:4000/api/cities")
+            .then(res => this.setState({ dataCities: res.data.respuesta }))
+    }
 
-    useEffect(()=>{
-        fetch("http://localhost:4000/api/cities")
-        .then(res => res.json())
-        .then(data => setCities(data.respuesta))
-        .catch(err => console.error(err.message))
-    },[])
-
-
-    return (
-        <>
-            <div className="city-container">
-                <div className="subtitle-container">
-                <h2>Life in <span>Wanderlust</span></h2>
-                </div>
-                <div className="city-container-card">
-                {cities.length > 0 ?
-                cities.map((element) => 
-                    (
-                    <div className="container-card">
-                        <div key={element.id} className="city-img-container">
-                            <img src={element.src} alt={element.nombre}/>
-                            <div className="name-container">
-                                <p className="name-city">{element.nombre}</p>
-                                <p>{element.pais}</p>
-                            </div>
-                        </div>
+    render() {
+        return (
+            <>
+                <div className="city-container">
+                    <div className="subtitle-container">
+                        <h2>Life in <span>Wanderlust</span></h2>
                     </div>
-                ))
-                :<p>Loading...</p>
-                }
+                    <div className="city-container-card">
+                        {this.state.dataCities && this.state.dataCities.map((element) => {
+                            return (
+                                <div className="container-card">
+                                    <div key={element.id} className="city-img-container">
+                                        <Link to={`/city/${element.id}`}>
+                                            <img src={element.src} alt={element.nombre} />
+                                        </Link>
+                                        <div className="name-container">
+                                            <p className="name-city">{element.nombre}</p>
+                                            <p>{element.pais}</p>
+                                        </div>
+                                    </div>
+                                </div>)
+                        })}
+                    </div>
+                    
                 </div>
-            </div>
-        </>
-    )
+            </>
+        )
+    }
 }
+
+

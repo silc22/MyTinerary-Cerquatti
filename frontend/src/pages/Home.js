@@ -4,12 +4,15 @@ import Calltoaction from '../components/Calltoaction';
 import Carousel from '../components/Carousel';
 
 
-export default function Home() {
-    return (
+class Home extends React.Component {
+    render() { 
+        return (
         <div>
             <Hero/>
             <Calltoaction/>
             <Carousel/>
-        </div>
-    )
+        </div>);
+    }
 }
+
+export default Home;

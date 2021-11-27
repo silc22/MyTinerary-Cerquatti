@@ -41,7 +41,7 @@
 }
 
 .links-nav{
-  font-size: 20px;
+  font-size: 2vh;
   display: flex;
   flex-flow: row nowrap;
   flex: 1 1 100%;
@@ -493,4 +493,75 @@ footer{
   width: 100%;
   height: 35vh;
   
+}
+
+
+/* ESTILO CITY */
+.container-city-padre{
+  min-height: 80vh;
+  background: url(./assetshero/img-6.jpg) center center/cover no-repeat;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-card-city{
+  padding-top: 5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-card-city h2{
+  margin: 2rem 0;
+  font-size: 50px;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: -5px 5px 10px rgb(61, 61, 57);
+  text-align: center;
+}
+
+.city-img-container-indiv{
+  box-shadow: -5px 5px 10px rgb(61, 61, 57);
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap; 
+  justify-content: center;
+  align-items: center;
+  max-width: 50rem;
+  height: 30rem;
+  background-color: whitesmoke;
+}
+
+.name-container{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.city-img-container-indiv >img{
+  object-fit: cover;
+  width: 95%;
+  height: 80%;
+}
+
+.city-contenido{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0px;
+  width: 100%;
+  background-color: rgba(245, 245, 245, 0.4);
+}
+
+.city-contenido > p{
+  font-size: 4vh;
+}
+
+.city-contenido Link{
+  color: yellowgreen;
 }
