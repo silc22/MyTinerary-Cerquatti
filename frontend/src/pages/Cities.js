@@ -8,7 +8,7 @@ export default function Cities() {
     useEffect(()=>{
         fetch("http://localhost:4000/api/cities")
         .then(res => res.json())
-        .then(data => setCities(data.response.cities))
+        .then(data => setCities(data.respuesta))
         .catch(err => console.error(err.message))
     },[])
 

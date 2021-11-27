@@ -173,7 +173,7 @@ header p {
   background: url(./assetshero/bg-7.jpg) center center/cover no-repeat;
   max-width: 100vw;
   height: 100vh;
-  box-shadow: -10px -10px 15px rgb(0, 0, 0);
+  box-shadow: 5px -5px 5px rgb(0, 0, 0);
 }
 
 
@@ -445,7 +445,7 @@ footer{
 /* PAGINA DE CITIES */
 
 .city-container{
-  background-image: linear-gradient(to bottom, #2d4c79, #34456e, #2a304a, #1d1d29, #070707);
+  background-image: linear-gradient(to bottom, #070707,#1d1d29, #1f3452, #2a304a, #1d1d29, #070707);
   padding-top: 3rem
 }
 
