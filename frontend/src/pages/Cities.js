@@ -26,8 +26,8 @@ export default class Cities extends Component {
                         {this.state.dataCities && this.state.dataCities.map((element) => {
                             return (
                                 <div className="container-card">
-                                    <div key={element.id} className="city-img-container">
-                                        <Link to={`/city/${element.id}`}>
+                                    <div key={element._id} className="city-img-container">
+                                        <Link to={`/city/${element._id}`}>
                                             <img src={element.src} alt={element.nombre} />
                                         </Link>
                                         <div className="name-container">
