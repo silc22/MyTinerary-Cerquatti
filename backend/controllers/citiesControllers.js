@@ -119,16 +119,14 @@ const citiesControllers = {
 
     deleteCity: async(req,res)=>{
 
+        let city
         const id = req.params.id
-        let cities
-        try{
-            await City.findOneAndDelete({_id:id})
-            cities = await City.find()
-        }catch(error){
+        try {
+            city = await City.findOneAndDelete({ _id: id })
+        } catch(error) {
             console.log(error)
         }
-
-        res.json({respuesta: cities, success:true})
+        res.json({response: city})
     },
 
 
