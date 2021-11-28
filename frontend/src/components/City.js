@@ -30,7 +30,7 @@ export const City = () => {
                 </div>
                 }
                 <div className="city-contenido">
-                    <p>UNDERCONSTRUCTION</p>
+                    <p>UNDER CONSTRUCTION</p>
                     <Link to="/Cities" className="link-city"><p>BACK TO CITIES</p></Link>
                 </div>
         </div>
