@@ -19,7 +19,7 @@ export const City = () => {
         <>      
         <div className="container-city-padre">
                 {city && <div className="container-card-city">
-                    <h2>Discover the beauty of {city.nombre} in {city.pais}!</h2>
+                    <h2>Discover the beauty of <span>{city.nombre}</span></h2>
                     <div key={city.id} className="city-img-container-indiv">
                         <img src={city.src} />
                         <div  className="name-container">
@@ -31,7 +31,7 @@ export const City = () => {
                 }
                 <div className="city-contenido">
                     <p>UNDERCONSTRUCTION</p>
-                    <Link to="/Cities">BACK TO CITIES</Link>
+                    <Link to="/Cities" className="link-city"><p>BACK TO CITIES</p></Link>
                 </div>
         </div>
         </>

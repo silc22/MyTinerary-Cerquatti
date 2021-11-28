@@ -6,7 +6,8 @@ const { allCities, cityIndivdual, cargarcity } = citiesControllers
 Router.route('/cities')
 .get(allCities)
 .post(cargarcity)
-
+// .delete()
+// .put()
 
 Router.route('/city/:id')
 .get(cityIndivdual)
