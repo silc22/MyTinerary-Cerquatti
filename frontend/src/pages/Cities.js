@@ -19,7 +19,8 @@ export default class Cities extends Component {
             <>
                 <div className="city-container">
                     <div className="subtitle-container">
-                        <h2>FIND YOUR DREAM CITY</h2>
+                        <h2>FIND YOUR DREAM CITY:</h2>
+                        <input></input>
                         <p>Life in <span>Wanderlust</span></p>
                     </div>
                     <div className="city-container-card">
