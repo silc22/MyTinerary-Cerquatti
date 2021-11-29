@@ -491,7 +491,7 @@ footer{
 
 .container-card{
   border-radius: 5px;
-  width: 20rem;
+  max-width: 20rem;
   margin: 1rem .5rem;
   background-color: rgb(226, 226, 226);
   box-shadow: -1px 1px 5px rgb(0, 0, 0);
@@ -581,7 +581,7 @@ footer{
   background-color: rgb(7,7,7)
 }
 
-.city-contenido > p{
+.city-contenido > h3{
   color: whitesmoke;
   font-size: 4vh;
 }

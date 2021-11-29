@@ -31,8 +31,12 @@ export const City = () => {
                 </div>
                 }
         </div>
+        {/* aca hay que mapear los itenerarios */}
         <div className="city-contenido">
-            <p>UNDER CONSTRUCTION</p>
+            <h3>Itineraries</h3>
+            <div>
+                
+            </div>
             <Link to="/Cities" className="link-city"><p>BACK TO CITIES</p></Link>
         </div>
         </div>      

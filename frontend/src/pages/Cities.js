@@ -26,10 +26,9 @@ export default class Cities extends Component {
         this.setState({searchCity: filtred})
     }
 
+ 
     render() {
-        const { searchCity } = this.state
-        
-
+        const {searchCity} = this.state
         return (
             <>
                 <div className="city-container">
