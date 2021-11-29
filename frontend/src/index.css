@@ -378,15 +378,12 @@ header p {
   color: black;
 }
 
-
-
 .name-city{
   padding: 1px 0;
   margin-bottom: 0px;
   font-weight: bold;
   font-size: 1.3rem;
 }
-
 
 
 /* ESTILO COMPONENTE FOOTER */
@@ -622,6 +619,7 @@ footer{
 }
 
 .subtitle-container input{
+  text-align: center;
   border-radius: 5px;
   padding:  0 .5rem;
   margin: 2rem 0;
@@ -635,8 +633,9 @@ footer{
 
 
 .subtitle-container input::placeholder{
-  color:rgb(102, 102, 102);
+  color:rgb(187, 187, 187);
   padding: 0 .5rem;
+  text-align: center;
 }
 
 .subtitle-container input:hover{
