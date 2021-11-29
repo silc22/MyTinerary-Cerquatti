@@ -104,7 +104,7 @@ const citiesControllers = {
         const {nombre, pais, src} = req.body
         new City({nombre, pais, src}).save()
         .then((response) => res.json({response}))
-      },
+    },
 
     getCity: async(req,res)=>{  
         let cities

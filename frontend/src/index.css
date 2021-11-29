@@ -461,7 +461,7 @@ footer{
 }
 
 .subtitle-container H2{
-  margin: 2rem 0;
+  margin: 2rem 0 0 0 ;
   font-size: 5vh;
   text-transform: uppercase;
   color: white;
@@ -469,12 +469,13 @@ footer{
   text-align: center;
 }
 
-.subtitle-container P{
+.subtitle-container p{
+  margin-top: 2rem;
   text-align: center;
   font-size: 4vh;
   color: white;
   font-family: 'Sacramento', cursive;
-  text-shadow: 0px 0px 15px rgb(205, 202, 50);
+  text-shadow: 0px 0px 15px rgb(255, 255, 255);
 }
 
 
@@ -618,13 +619,23 @@ footer{
 
 .subtitle-container input{
   border-radius: 5px;
+  padding:  0 .5rem;
   margin: 2rem 0;
   max-width: 50rem;
   font-size: 1.5rem;
   border: none;
   background-color: #ffffff4b;
   color:whitesmoke;
-  font-weight: bolder;
-  text-align: center;
   outline-color: #ffffff2d;
+}
+
+
+.subtitle-container input::placeholder{
+  color:rgb(102, 102, 102);
+  padding: 0 .5rem;
+}
+
+.subtitle-container input:hover{
+  box-shadow: 0px 0px 10px whitesmoke;
+  transition: .3s;
 }

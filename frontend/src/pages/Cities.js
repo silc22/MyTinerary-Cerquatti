@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import Search from '../components/Search';
 
 export default class Cities extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {}
+    // constructor(props) {
+    //     super(props)
+    //      this.state = {}
+    // }
+
+    state = {
+        dataCities: [],
+        searchCity: "",
     }
+
 
     componentDidMount() {
         axios.get("http://localhost:4000/api/cities")
@@ -15,16 +22,21 @@ export default class Cities extends Component {
     }
 
     render() {
+        const {dataCities, searchCity} = this.state
+        const filterCity = dataCities.filter(city => {
+            return city.nombre.toLowerCase().startsWith(searchCity.toLowerCase())
+        })
+
         return (
             <>
                 <div className="city-container">
                     <div className="subtitle-container">
                         <h2>FIND YOUR DREAM CITY:</h2>
-                        <input></input>
+                        <Search  handleChange={e => this.setState({ searchCity: e.target.value.trim()})} />
                         <p>Life in <span>Wanderlust</span></p>
                     </div>
                     <div className="city-container-card">
-                        {this.state.dataCities && this.state.dataCities.map((element) => {
+                        {( filterCity.length > 0 ? filterCity : this.state.dataCities).map((element) => {
                             return (
                                 <div className="container-card">
                                     <div key={element._id} className="city-img-container">
