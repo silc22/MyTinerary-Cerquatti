@@ -15,10 +15,15 @@ Router.route('/city/:id')
 .get(getCity)
 .delete(deleteCity)
 .put(modifyCity)
-// .get(itinerarioTodos)
-// .get(conseguirItinerario)
-// .post(agregarItinerario)
-// .delete(borarItinerario)
-// .put(modificarItinerario)
+
+
+Router.route('/itineraries')
+.get(itinerarioTodos)
+.post(agregarItinerario)
+
+Router.route('/itineraries/:id')
+.get(conseguirItinerario)
+.delete(borarItinerario)
+.put(modificarItinerario)
 
 module.exports = Router

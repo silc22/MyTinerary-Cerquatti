@@ -23,7 +23,7 @@ const itinerariesControllers = {
 
     agregarItinerario: (req, res) => {
         const {usuarioNombre, usuarioFoto, price, duracion} = req.body
-        new City({usuarioNombre, usuarioFoto, price, duracion}).save()
+        new Itineraries({usuarioNombre, usuarioFoto, price, duracion}).save()
         .then((response) => res.json({response}))
     },
 
