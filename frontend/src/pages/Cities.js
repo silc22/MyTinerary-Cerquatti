@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 
 export default class Cities extends Component {
 
-    // constructor(props) {
-    //     super(props)
-    //      this.state = {}
-    // }
-
     state = {
         dataCities: [],
         searchCity: [],
