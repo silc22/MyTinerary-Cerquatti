@@ -7,7 +7,7 @@ function Header() {
     return (
         <div className="costumBg" variant="dark">
             <div className="logo-container">
-                <img src="./logo-mt.png" alt="MyTinerary Logo"></img>
+                <img src="/logo-mt.png" alt="MyTinerary Logo"></img>
             </div>
             <div className="links-nav">
                 <Nav.Link  as={Link} to="/"  className="link-nav">Home</Nav.Link>
