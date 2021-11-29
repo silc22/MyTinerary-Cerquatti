@@ -10,9 +10,9 @@ export default class CustomSlide extends Component {
     this.state = {
       cities: [
           {id: 1,
-          nombre:"Dolomitas",
-          pais: "Italy",
-          src: './cities/italia-dolomitas.jpg'
+            nombre :  "Bolzano",
+            pais : "Italy",
+            src : "/cities/italia-bolzano.jpg"
           },
           {id: 2,
           nombre:"Cotswolds",

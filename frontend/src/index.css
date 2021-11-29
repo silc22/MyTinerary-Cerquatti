@@ -314,6 +314,7 @@ header p {
   min-height: 60vh;
   color: white;
   background-color: rgb(7,7,7);
+  
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -322,9 +323,9 @@ header p {
 
 .carousel-container h2 {
   margin-bottom: 1rem;
-  font-size: 2rem;
+  font-family: 'Sacramento', cursive;
+  font-size: 3rem;
   text-align: center;
-  text-transform: uppercase;
   font-weight: lighter;
   letter-spacing: 1px;
 }

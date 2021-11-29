@@ -1,19 +1,19 @@
-const Iteraries = require('../models/Iteneraries')
+const Itineraries = require('../models/Itineraries')
 
 
 const itinerariesControllers = {
 
-    getCities: async(req,res)=>{
+    itinerarioTodos: async(req,res)=>{
         let itinerarios
         let error = null
         try{
-            itinerarios = await Iteraries.find()
+            itinerarios = await Itineraries.find()
             
         }catch(error){
             error = error
             console.error(error)
         }  
-            
+
         res.json({
             respuesta: error ? 'ERROR' : itinerarios, 
             success: error ? false : true,
@@ -21,28 +21,28 @@ const itinerariesControllers = {
         })
     },
 
-    addCity: (req, res) => {
+    agregarItinerario: (req, res) => {
         const {usuarioNombre, usuarioFoto, price, duracion} = req.body
         new City({usuarioNombre, usuarioFoto, price, duracion}).save()
         .then((response) => res.json({response}))
     },
 
-    getCity: async(req,res)=>{  
+    conseguirItinerario: async(req,res)=>{  
         let itinerarios
         const id = req.params.id        
         try{
-            itinerarios = await City.findOne({_id:id})
+            itinerarios = await Itineraries.findOne({_id:id})
         }catch(error){
             console.log(error)
         }
         res.json({respuesta: itinerarios, success:true})
     },
 
-    deleteCity: async(req,res)=>{
+    borarItinerario: async(req,res)=>{
         let city
         const id = req.params.id
         try {
-            city = await Iteraries.findOneAndDelete({ _id: id })
+            city = await Itineraries.findOneAndDelete({ _id: id })
         } catch(error) {
             console.log(error)
         }
@@ -50,12 +50,12 @@ const itinerariesControllers = {
     },
 
 
-    modifyCity: async(req,res)=>{
+    modificarItinerario: async(req,res)=>{
         let id = req.params.id
         let itinerarios = req.body
         let actualizado
         try{
-            actualizado = await Iteraries.findOneAndUpdate({ _id : id }, itinerarios, { new : true })
+            actualizado = await Itineraries.findOneAndUpdate({ _id : id }, itinerarios, { new : true })
         }catch(error){
             console.log(error)
         }
