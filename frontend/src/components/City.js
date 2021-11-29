@@ -16,7 +16,8 @@ export const City = () => {
 
 
     return (
-        <>      
+        <>
+        <div className="global-container">
         <div className="container-city-padre">
                 {city && <div className="container-card-city">
                     <h2>Discover the beauty of <span>{city.nombre}</span></h2>
@@ -29,11 +30,12 @@ export const City = () => {
                     </div>
                 </div>
                 }
-                <div className="city-contenido">
-                    <p>UNDER CONSTRUCTION</p>
-                    <Link to="/Cities" className="link-city"><p>BACK TO CITIES</p></Link>
-                </div>
         </div>
+        <div className="city-contenido">
+            <p>UNDER CONSTRUCTION</p>
+            <Link to="/Cities" className="link-city"><p>BACK TO CITIES</p></Link>
+        </div>
+        </div>      
         </>
     )
 }
