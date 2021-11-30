@@ -21,7 +21,7 @@ Router.route('/itineraries')
 .get(itinerarioTodos)
 .post(agregarItinerario)
 
-Router.route('/itineraries/:id')
+Router.route('/itinerary/:id')
 .get(conseguirItinerario)
 .delete(borarItinerario)
 .put(modificarItinerario)

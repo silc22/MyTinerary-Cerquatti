@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
+import Itinerarie from './Itinerarie';
 import { Link } from 'react-router-dom';
 
 
@@ -31,15 +32,13 @@ export const City = () => {
                 </div>
                 }
         </div>
-        {/* aca hay que mapear los itenerarios */}
         <div className="city-contenido">
-            <h3>Itineraries</h3>
-            <div>
-                
-            </div>
-            <Link to="/Cities" className="link-city"><p>BACK TO CITIES</p></Link>
-        </div>
-        </div>      
+            <Itinerarie/>
+            <Link to="/Cities" className="link-city">
+                <p>BACK TO CITIES</p>
+            </Link>
+        </div> 
+        </div>    
         </>
     )
 }
