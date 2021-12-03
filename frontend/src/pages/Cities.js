@@ -1,34 +1,27 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import cityAction from '../redux/actions/cityAction';
 
-export default class Cities extends Component {
-
-    state = {
-        dataCities: [],
-        searchCity: [],
-    }
-
+ class Cities extends Component {
 
     componentDidMount() {
-        axios.get("http://localhost:4000/api/cities")
-            .then(res => this.setState({ dataCities: res.data.respuesta,  searchCity: res.data.respuesta}))
+        this.props.getCities()
     }
 
-    handleChange = (e) => {
-
+    filtrado = (e) => {
         const valorDelImput = e.target.value.toLowerCase().trim();
         let filtred = [];
-            filtred = this.state.dataCities.filter(ciudad => {
+            filtred = this.state.cities.filter(ciudad => {
             const city = ciudad.nombre.toLowerCase().trim()
             return city.startsWith(valorDelImput)
         }) 
-        this.setState({searchCity: filtred})
+        this.setState({cities: filtred})
     }
 
- 
     render() {
-        const {searchCity} = this.state
+        const cities = this.props.citiesList
+
         return (
             <>
                 <div className="city-container">
@@ -38,7 +31,7 @@ export default class Cities extends Component {
                         <p>Life in <span>Wanderlust</span></p>
                     </div>
                     <div className="city-container-card">
-                        { searchCity.length > 0 ? searchCity.map((element) => {
+                        { cities.length > 0 ? cities.map((element) => {
                             return (
                                 <div className="container-card">
                                     <div key={element._id} className="city-img-container">
@@ -53,7 +46,7 @@ export default class Cities extends Component {
                                 </div>)
                         })
                         :<p className="aviso-alert">your search does not exist</p>
-                    }
+                    } 
                     </div>
                     
                 </div>
@@ -62,4 +55,17 @@ export default class Cities extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return{
+        citiesList: state.cities.listaCiudades
+        // state: mainReducer, Cities: citiesReducer
+    }      
+}
 
+const mapDispatchToProps = {
+    getCities: cityAction.getAllCities
+    
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities)

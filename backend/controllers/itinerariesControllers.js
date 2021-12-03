@@ -1,4 +1,4 @@
-const Itineraries = require('../models/Itineraries')
+const Itineraries = require('../models/Itinerary')
 
 
 const itinerariesControllers = {
@@ -7,7 +7,7 @@ const itinerariesControllers = {
         let itinerarios
         let error = null
         try{
-            itinerarios = await Itineraries.find()
+            itinerarios = await Itineraries.find().populate('city')
             
         }catch(error){
             error = error
@@ -22,8 +22,8 @@ const itinerariesControllers = {
     },
 
     agregarItinerario: (req, res) => {
-        const {itinerarioNombre, usuarioNombre, usuarioFoto, price, duracion} = req.body
-        new Itineraries({itinerarioNombre, usuarioNombre, usuarioFoto, price, duracion}).save()
+        const {itinerarioNombre, usuarioNombre, usuarioFoto, price, duracion, hashtags, likes, comments} = req.body
+        new Itineraries({itinerarioNombre, usuarioNombre, usuarioFoto, price, duracion, hashtags, likes, comments}).save()
         .then((response) => res.json({response}))
     },
 
@@ -31,7 +31,7 @@ const itinerariesControllers = {
         let itinerarios
         const id = req.params.id        
         try{
-            itinerarios = await Itineraries.findOne({_id:id})
+            itinerarios = await Itineraries.findOne({_id:id}).populate('city')
         }catch(error){
             console.log(error)
         }
@@ -60,7 +60,17 @@ const itinerariesControllers = {
             console.log(error)
         }
         res.json({success : actualizado ? true : false})
+    },
+
+    conseguirItinerarioDeUnaCiudad: async(req,res)=>{
+        try{
+            const itinerarioDeCiudad = await Itineraries.find({city: req.params.idCity})
+            res.json({response: itinerarioDeCiudad})
+        }catch(error){
+            console.log(error)
+        }
     }
+
 }
 
 module.exports = itinerariesControllers;
