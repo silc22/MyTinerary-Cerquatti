@@ -31,7 +31,7 @@ export const City = (props) => {
                 } 
         </div>
         <div className="city-contenido">
-            {props.itinerarios.length > 0 && <Itinerarie itineraryProps={props.itinerarios}/>}
+            {props.itinerarios && <Itinerarie itineraryProps={props.itinerarios}/>}
             <Link to="/Cities" className="link-city">
                 <p>BACK TO CITIES</p>
             </Link>
@@ -45,6 +45,7 @@ const mapStateToProps = (state) => {
     return{
         city: state.cities.ciudad,
         itinerarios: state.intinerary.listaItinerariosPorCiudad
+        // CREO UNA PROP PARA ESTE COMPONENTE Y LE ASIGNO UN CONTENIDO DEL STORE.
     }      
 }
 
