@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import cityAction from '../redux/actions/cityAction';
 import itineraryAction from '../redux/actions/initineraryAction';
 
-export const City = (props) => {
+const City = (props) => {
     let { id } = useParams()
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export const City = (props) => {
     return (
         <>
         <div className="global-container">
-        <div className="container-city-padre">
+            <div className="container-city-padre">
                 {props.city && <div className="container-card-city">
                     <h2>Discover the beauty of <span>{props.city.nombre}</span></h2>
                     <div key={props.city._id} className="city-img-container-indiv">
@@ -29,13 +29,13 @@ export const City = (props) => {
                     </div>
                 </div>
                 } 
-        </div>
-        <div className="city-contenido">
-            {props.itinerarios && <Itinerarie itineraryProps={props.itinerarios}/>}
-            <Link to="/Cities" className="link-city">
-                <p>BACK TO CITIES</p>
-            </Link>
-        </div> 
+            </div>
+            <div className="city-contenido">
+                {props.itinerarios && <Itinerarie itineraryProps={props.itinerarios}/>}
+                <Link to="/Cities" className="link-city">
+                    <p>BACK TO CITIES</p>
+                </Link>
+            </div> 
         </div>    
         </>
     )

@@ -17,6 +17,14 @@ const citiesReducer = (state = incialState, action) =>{
                 ...state,
                 ciudad: action.payload,
             }
+        // case 'FILTRO':
+
+        // const 
+
+        //     return{
+        //         ...state,
+
+        //     }
 
         default: 
             return state
@@ -27,3 +35,14 @@ const citiesReducer = (state = incialState, action) =>{
 }
 
 export default citiesReducer
+
+
+// filtrado = (e) => {
+//     const valorDelImput = e.target.value.toLowerCase().trim();
+//     let filtred = [];
+//         filtred = this.state.cities.filter(ciudad => {
+//         const city = ciudad.nombre.toLowerCase().trim()
+//         return city.startsWith(valorDelImput)
+//     }) 
+//     this.setState({cities: filtred})
+// }

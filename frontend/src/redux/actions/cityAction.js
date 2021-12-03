@@ -16,10 +16,16 @@ const cityAction = {
         return async(dispatch, getState) => {
             const res = await axios.get('http://localhost:4000/api/city/'+id)
             let informacion = res.data.respuesta
-            console.log(informacion, "informacion")
             dispatch({type:'GET_CITY', payload: informacion})
         }
+    },
+
+    filtrar: (event)=>{
+        // return (dispatch,getState)=>{
+        //     dispatch({type:'FILTRO', payload:{productos, value}})
+        // }
     }
+
 }
     
 export default cityAction

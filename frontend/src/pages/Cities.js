@@ -9,15 +9,7 @@ import cityAction from '../redux/actions/cityAction';
         this.props.getCities()
     }
 
-    filtrado = (e) => {
-        const valorDelImput = e.target.value.toLowerCase().trim();
-        let filtred = [];
-            filtred = this.state.cities.filter(ciudad => {
-            const city = ciudad.nombre.toLowerCase().trim()
-            return city.startsWith(valorDelImput)
-        }) 
-        this.setState({cities: filtred})
-    }
+
 
     render() {
         const cities = this.props.citiesList
