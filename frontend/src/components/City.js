@@ -31,7 +31,7 @@ const City = (props) => {
                 } 
             </div>
             <div className="city-contenido">
-                {props.itinerarios && <Itinerarie itineraryProps={props.itinerarios}/>}
+                {props.itinerarios  && <Itinerarie itineraryProps={props.itinerarios}/>}
                 <Link to="/Cities" className="link-city">
                     <p>BACK TO CITIES</p>
                 </Link>

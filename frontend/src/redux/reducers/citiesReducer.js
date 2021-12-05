@@ -2,7 +2,7 @@
 // de acuerdo a la action que reciba va a modificar el store de alguna manera a traves de los componentes
 // SIEMPRE EL REDUCER TERMINA CON RETURN PORQUE TIENE QUE DEVOLVER UN NUEVO ESTADO. 
 // 
-const incialState = {listaCiudades: []}
+const incialState = {listaCiudades: [], cityFiltered: [], city: {}}
 
 const citiesReducer = (state = incialState, action) =>{
     // hay que evaluar el type de la accion - 
@@ -11,20 +11,21 @@ const citiesReducer = (state = incialState, action) =>{
             return {
                 ...state,
                 listaCiudades: action.payload,
+                cityFiltered: action.payload
             }
         case 'GET_CITY':
             return {
                 ...state,
                 ciudad: action.payload,
             }
-        // case 'FILTRO':
-
-        // const 
-
-        //     return{
-        //         ...state,
-
-        //     }
+        case 'FILTRO':
+        const  { cities, value} = action.payload
+        const filtered = cities.filter(city => city.nombre.toLowerCase().startsWith(value.toLowerCase().trim()))
+    
+            return{
+                ...state,
+                cityFiltered: filtered
+            }
 
         default: 
             return state
@@ -36,13 +37,3 @@ const citiesReducer = (state = incialState, action) =>{
 
 export default citiesReducer
 
-
-// filtrado = (e) => {
-//     const valorDelImput = e.target.value.toLowerCase().trim();
-//     let filtred = [];
-//         filtred = this.state.cities.filter(ciudad => {
-//         const city = ciudad.nombre.toLowerCase().trim()
-//         return city.startsWith(valorDelImput)
-//     }) 
-//     this.setState({cities: filtred})
-// }
