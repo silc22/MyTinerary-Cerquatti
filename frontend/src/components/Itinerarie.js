@@ -5,15 +5,18 @@ import ViewMore from './ViewMore';
 
 const Itinerarie = ({ itineraryProps }) => {
     
-        
+     let dolar = "💵"
+     let clock = "⌛"
+     let heart = "❤️"
+
     return (
-        
         <>
-        
+       
             <div className="itinerary-container">
                 <h2>City's itineraries</h2>
                 <div className="itinerary-contenido">
-                    {itineraryProps.length > 0 ? itineraryProps.map((element) => {
+                    { itineraryProps.length > 0 ?
+                    itineraryProps.map((element) => {
                         return (
                             <div className="itinerary-container-card">
                                 <h3>{element.itinerarioNombre}</h3>
@@ -23,9 +26,9 @@ const Itinerarie = ({ itineraryProps }) => {
                                         <p className="name-usuario">{element.usuarioNombre}</p>
                                     </div>
                                     <div className="name-itinerary">
-                                        <p><span>Price: </span>{element.price}</p>
-                                        <p><span>Duration: </span> {element.duracion}</p>
-                                        <p><span>Likes:</span> {element.likes} </p>
+                                        <p><span>Price: </span>{(dolar).repeat(element.price)}</p>
+                                        <p><span>Duration: </span>{(clock).repeat(element.duracion)}</p>
+                                        <p><span>Likes: </span> {heart}{element.likes} </p>
                                         <p><span>Hashtags: </span>{element.hashtags}</p>
                                     </div>
                                 </div>
@@ -34,7 +37,10 @@ const Itinerarie = ({ itineraryProps }) => {
                         )
                     }
                     )
-                        : <p className="aviso-alert">NO ITINERARY FOR THIS CITY YET :(</p>
+                        : 
+                        <p className="aviso-alert">
+                            NO ITINERARY FOR THIS CITY YET :(
+                        </p>
                     }
                 </div>
             </div>

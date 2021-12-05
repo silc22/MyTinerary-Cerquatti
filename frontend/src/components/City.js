@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import cityAction from '../redux/actions/cityAction';
 import itineraryAction from '../redux/actions/initineraryAction';
 
+
 const City = (props) => {
     let { id } = useParams()
 

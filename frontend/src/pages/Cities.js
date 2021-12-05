@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import cityAction from '../redux/actions/cityAction';
+import Loader from '../components/Loader';
 
  class Cities extends React.Component {
 
@@ -24,7 +25,11 @@ import cityAction from '../redux/actions/cityAction';
                         <p>Life in <span>Wanderlust</span></p>
                     </div>
                     <div className="city-container-card">
-                        { filtered.length > 0 ? filtered.map((element) => {
+                        { filtered.length === 0 ? <Loader/>
+                        :
+                        filtered.length > 0 
+                        ? 
+                        filtered.map((element) => {
                             return (
                                 <div className="container-card" key={element._id}>
                                     <div key={element._id} className="city-img-container">
@@ -38,7 +43,10 @@ import cityAction from '../redux/actions/cityAction';
                                     </div>
                                 </div>)
                         })
-                        :<p className="aviso-alert">your search does not exist</p>
+                        :
+                        <p className="aviso-alert">
+                            your search does not exist
+                        </p>
                     } 
                     </div>
                     
