@@ -26,7 +26,7 @@ const Itinerarie = ({ itineraryProps }) => {
                                         <p><span>Price: </span>{element.price}</p>
                                         <p><span>Duration: </span> {element.duracion}</p>
                                         <p><span>Likes:</span> {element.likes} </p>
-                                        <p><span>Hashtags: </span> {element.hashtags}</p>
+                                        <p><span>Hashtags: </span>{element.hashtags}</p>
                                     </div>
                                 </div>
                                 <ViewMore />
@@ -34,7 +34,7 @@ const Itinerarie = ({ itineraryProps }) => {
                         )
                     }
                     )
-                        : <p className="aviso-alert">NO ITINERARY YET FOR THIS CITY :(</p>
+                        : <p className="aviso-alert">NO ITINERARY FOR THIS CITY YET :(</p>
                     }
                 </div>
             </div>
