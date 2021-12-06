@@ -25,7 +25,7 @@ import Loader from '../components/Loader';
                         <p>Life in <span>Wanderlust</span></p>
                     </div>
                     <div className="city-container-card">
-                        { filtered.length === 0 ? <Loader/>
+                        { cities.length === 0 ? <Loader/>
                         :
                         filtered.length > 0 
                         ? 
