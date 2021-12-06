@@ -49,7 +49,6 @@ import Loader from '../components/Loader';
                         </p>
                     } 
                     </div>
-                    
                 </div>
             </>
         )

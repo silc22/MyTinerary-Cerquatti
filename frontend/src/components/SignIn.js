@@ -23,7 +23,7 @@ const SignIn = () => {
                                         Log In
                                     </Link>
                                     <Link as={Link} to={"/"} className="btn-form">
-                                        Sign Up with google <i className="fab fa-google"></i>
+                                        Log In with google <i className="fab fa-google"></i>
                                     </Link>
                                 </div>
                             </div>
