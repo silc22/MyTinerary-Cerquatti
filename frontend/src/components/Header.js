@@ -15,8 +15,8 @@ function Header() {
             </div>
             <div className="dropdown-nav">
                 <NavDropdown title={<i className="fas fa-user"></i>} className="link-nav" id="basic-nav-dropdown">
-                    <NavDropdown.Item as={Link} to="/" >Sign In </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/">Log In </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/signIn" >Sign In </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/">Sign Up </NavDropdown.Item>
                 </NavDropdown>
             </div>
         </div>

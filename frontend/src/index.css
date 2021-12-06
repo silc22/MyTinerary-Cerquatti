@@ -99,7 +99,7 @@ header{
   background-color: rgba(10, 9, 9, 0.322);
   min-width: 80%;
   min-height: 60%;
-  box-shadow: -10px 10px 15px rgb(0, 0, 0);
+  box-shadow: -5px 5px 10px rgb(0, 0, 0);
 }
 
 header img{
@@ -184,18 +184,6 @@ header p {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-
-.form-container{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-container Form{
-  min-width: 80%;
 }
 
 
@@ -856,3 +844,243 @@ body::-webkit-scrollbar-thumb{
   }
 }
 
+/* ESTILO FORM SIGN IN*/
+
+.cointainer-all{
+  width: 100vw;
+  height: 80vh;
+  background: url(./assetshero/heroimp.jpg) center center/cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.form-neon{
+  margin-top: 2rem;
+  padding: 1rem;
+  min-width: 65vw;
+  min-height: 50vh;
+  background: #00000052;
+  border-radius: 5px;
+  color: whitesmoke;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .5s;
+  overflow: hidden;
+  box-shadow: -5px 5px 10px rgb(0, 0, 0);
+}
+
+.form-neon:nth-child(1){
+  filter: hue-rotate(270deg);
+}
+
+.form-neon span{
+  position: absolute;
+  display: block;
+}
+
+.form-neon span:nth-child(1){
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#f8f8f8);
+  animation: animate1 3s linear infinite;
+}
+
+@keyframes animate1{
+  0%{
+      left: -100%;
+  }
+  50%,100%{
+      left: 100%;
+  }
+}
+
+
+.form-neon span:nth-child(2){
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,transparent,#f8f8f8);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2{
+  0%{
+      top: -100%;
+  }
+  50%,100%{
+      top: 100%;
+  }
+}
+
+.form-neon span:nth-child(3){
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg,transparent,#f8f8f8);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.50s;
+}
+
+@keyframes animate3{
+  0%{
+      right: -100%;
+  }
+  50%,100%{
+      right: 100%;
+  }
+}
+
+
+.form-neon span:nth-child(4){
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg,transparent,#f8f8f8);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes animate4{
+  0%{
+      bottom: -100%;
+  }
+  50%,100%{
+      bottom: 100%;
+  }
+}
+
+
+form{
+  color: #ffffff;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:center;
+  align-items: center ;
+
+}
+
+form h2{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.inputs-container{
+  min-width: 250px;
+  width: 60%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  border-right: 1px solid #f8f8f8;
+}
+
+label{
+  margin: .5rem 0;
+}
+
+input{
+  width: 90%;
+  color: #ffffff;
+  border: unset;
+  background-color: #00000028;
+  border-bottom: 1px solid #f8f8f8;
+  background-image: unset;
+}
+
+input:focus{
+  outline: none;
+  border: 1px solid #f8f8f8;
+}
+
+.select-container{
+  margin-top: .5rem;
+  text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.select-container p {
+  padding-right: 1rem;
+  margin: auto;
+}
+
+select{
+  font: normal 1rem 'Roboto';
+  background-color: unset;
+  color: #ffffff;
+  border: unset;
+  border-bottom: 1px solid #f8f8f8;
+
+}
+
+select:focus{
+  outline: none;
+}
+
+.btns-container{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  height: 48vh;
+  padding-left: 1rem;
+}
+
+.btns-container p{
+  font-size: 1.2rem;
+}
+
+
+.ppal-btn{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  width: 90%;
+}
+
+.logo-form img{
+  width: 4rem;
+}
+
+.btn-form{
+  margin: 0 .5rem;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .5s;
+  padding: .5rem;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.btn-form:hover{
+  background: #ebe9e175;
+  color: unset;
+}
+
+
+.signUp{
+  height: 10vh;
+}
+
+@media screen and (max-width: 768px){
+
+}
