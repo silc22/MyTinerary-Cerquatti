@@ -35,7 +35,6 @@
 }
 
 .dropdown-nav{
-
   padding: 0px 2rem;
   display: flex;
   flex: 0 1 auto
@@ -853,7 +852,7 @@ body::-webkit-scrollbar-thumb{
 
 .cointainer-all{
   width: 100vw;
-  height: 83vh;
+  min-height: 83vh;
   background: url(./assetshero/heroimp.jpg) center center/cover no-repeat;
   background-attachment: fixed;
   display: flex;
@@ -862,9 +861,8 @@ body::-webkit-scrollbar-thumb{
   align-items: center;
 }
 
-
 .form-neon{
-  margin-top: 2rem;
+  margin: 2rem 0 0 0;
   padding: 1rem;
   min-width: 65vw;
   min-height: 50vh;
@@ -1044,7 +1042,8 @@ select:focus{
   justify-content: space-around;
   align-items: center;
   width: 40%;
-  height: 48vh;
+  min-height: 30vh;
+  max-height: 50vh;
   padding-left: 1rem;
 }
 
@@ -1088,6 +1087,33 @@ select:focus{
   height: 10vh;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 450px){
+
+  .cointainer-all{
+    padding: .5rem;
+  }
+
+  .form-neon{
+    width: 100%;
+    padding: 0;
+  }
+
+  .inputs-container{
+    width: 100%;
+    border: unset;
+    margin: 0;
+    align-items: center;
+  }
+
+  .btns-container{
+    min-height: 30vh;
+    width: 100%;
+    padding: 0;
+    justify-content: center
+  }
+
+  .logo-form img{
+    display: none
+  }
 
 }
