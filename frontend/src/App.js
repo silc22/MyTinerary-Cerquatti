@@ -7,8 +7,8 @@ import City from './components/City';
 import Cities from './pages/Cities';
 import Home from './pages/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
-
 
 function App() {
 
@@ -17,6 +17,7 @@ function App() {
       <Header />
         <Routes>
           <Route  path="/"  element={<Home/>}/>
+          <Route  path="/signUp"  element={<SignUp/>}/>
           <Route  path="/signIn"  element={<SignIn/>}/>
           <Route path="/cities" element={<Cities/>}/>
           <Route path="/city/:id" element={<City />} />
