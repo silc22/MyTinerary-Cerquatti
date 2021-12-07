@@ -449,9 +449,9 @@ footer{
   align-items: center;
 }
 
-.subtitle-container H2{
+.subtitle-container h2{
   margin: 2rem 0 0 0 ;
-  font-size: 5vh;
+  font-size: 4.5vh;
   text-transform: uppercase;
   color: white;
   text-shadow: -5px 5px 10px rgb(61, 61, 57);
@@ -1037,6 +1037,21 @@ select:focus{
   outline: none;
 }
 
+#country-select {
+  width: 10rem !important;
+  background-color: #00000077 !important;
+}
+
+select::-webkit-scrollbar{
+  width: 7px;
+  background-color: transparent;
+}
+select::-webkit-scrollbar-thumb{
+  background-color: #070707;
+  border-radius: 5px;
+  border-right: 2px solid #070707;
+}
+
 .btns-container{
   display: flex;
   flex-flow: column nowrap;
@@ -1120,8 +1135,8 @@ select:focus{
     display: none
   }
   .ppal-btn{
-   display: flex;
-   flex-flow: column nowrap;
+    display: flex;
+    flex-flow: column nowrap;
   }
 
   .btn-form{

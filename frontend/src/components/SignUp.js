@@ -1,8 +1,17 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect , useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
-const SignUp = () => {
+
+const  SignUp = () => {
+    const [countries, setCountries] = useState([])
+
+    useEffect(() => {
+        axios.get('https://restcountries.com/v2/all?fields=name')
+            .then(res => setCountries(res.data))
+            .catch(err => console.error(err))
+    },[])
 
     return (
         <div className="cointainer-all">
@@ -17,11 +26,12 @@ const SignUp = () => {
                                 <label htmlFor="fname">Name:</label>
                                     <input type="text" name="name" id="fname"/>
                                 <label htmlFor="lname">Last Name:</label>
-                                    <input type="text" name="lastname" id="lname"/>                   
+                                    <input type="text" name="lastname" id="lname" />                   
                                 <div className="select-container">
                                     <p>Country:</p>
                                     <select name="country" id="country-select">
-                                        <option disabled value hidden> Choose one</option>
+                                        <option defaultValue value="Choose one">Choose one</option>
+                                        {countries.map(country => <option key={country.name} value={country.name}>{country.name}</option>)}
                                     </select>
                                 </div>
                                 <label htmlFor="email">Email:</label>
@@ -45,7 +55,7 @@ const SignUp = () => {
                                     <img src="/logo-mt.png" alt="MyTinerary Logo"></img>
                                 </Link>
                                 <div className="signUp">
-                                    <p>¿Already have an account?</p>
+                                    <p>Already have an account?</p>
                                     <Link as={Link} to={"/"} className="btn-form">
                                         Sign In
                                     </Link>
@@ -59,4 +69,3 @@ const SignUp = () => {
 
 
 export default SignUp
-
