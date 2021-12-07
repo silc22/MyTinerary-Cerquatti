@@ -21,7 +21,7 @@ const SignUp = () => {
                                 <div className="select-container">
                                     <p>Country:</p>
                                     <select name="country" id="country-select">
-                                        <option disabled selected hidden> Choose one</option>
+                                        <option disabled value hidden> Choose one</option>
                                     </select>
                                 </div>
                                 <label htmlFor="email">Email:</label>

@@ -35,6 +35,7 @@
 }
 
 .dropdown-nav{
+
   padding: 0px 2rem;
   display: flex;
   flex: 0 1 auto
@@ -1042,8 +1043,7 @@ select:focus{
   justify-content: space-around;
   align-items: center;
   width: 40%;
-  min-height: 30vh;
-  max-height: 50vh;
+  min-height: 50vh;
   padding-left: 1rem;
 }
 
@@ -1087,6 +1087,7 @@ select:focus{
   height: 10vh;
 }
 
+/* MEDIA QUERYS DE FORMULARIO */
 @media screen and (max-width: 450px){
 
   .cointainer-all{
@@ -1095,7 +1096,6 @@ select:focus{
 
   .form-neon{
     width: 100%;
-    padding: 0;
   }
 
   .inputs-container{
@@ -1106,14 +1106,26 @@ select:focus{
   }
 
   .btns-container{
-    min-height: 30vh;
+    min-height: 20vh;
     width: 100%;
     padding: 0;
     justify-content: center
   }
 
+  .btns-container>p{
+    display: none;
+  }
+
   .logo-form img{
     display: none
+  }
+  .ppal-btn{
+   display: flex;
+   flex-flow: column nowrap;
+  }
+
+  .btn-form{
+    margin: .5rem 0;
   }
 
 }
