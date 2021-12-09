@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import authActions from '../redux/actions/authActions';
 
 const SignIn = () => {
+
 
     return (
         <div className="cointainer-all">
@@ -11,13 +13,13 @@ const SignIn = () => {
                 <span></span>
                 <span></span>
                 <span></span>
-                        <form action="" method="">
+                        <form action="" method="" >
                             <div className="inputs-container">
                                 <h2>¡Welcome back!</h2>
                                 <label htmlFor="email">Email:</label>
                                     <input type="email" name="email" id="email"/>
                                 <label htmlFor="password">Password:</label>
-                                    <input type="password" name="password" id="password"/>
+                                    <input type="password" name="password" id="password" />
                                 <div className="ppal-btn">
                                     <Link to="/" className="btn-form" type="submit">
                                         Log In
@@ -45,5 +47,15 @@ const SignIn = () => {
     )
 }
 
+const mapStateToProps = (state) => {
+    return{
+        UsersList: state.authReducer.UsersList
+    }      
+}
 
-export default SignIn
+const mapDispatchToProps = {
+        LogIn: authActions.LogIn
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

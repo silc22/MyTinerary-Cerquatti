@@ -484,7 +484,8 @@ footer{
 
 .container-card{
   border-radius: 5px;
-  max-width: 20rem;
+  min-width: 19rem;
+  max-width: 19rem;
   margin: 1rem .5rem;
   background-color: rgb(226, 226, 226);
   box-shadow: -1px 1px 5px rgb(0, 0, 0);
@@ -1040,6 +1041,7 @@ select:focus{
 #country-select {
   width: 10rem !important;
   background-color: #00000077 !important;
+  text-align: center !important;
 }
 
 select::-webkit-scrollbar{

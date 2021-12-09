@@ -13,6 +13,7 @@ const  SignUp = () => {
             .catch(err => console.error(err))
     },[])
 
+
     return (
         <div className="cointainer-all">
                 <div className="form-neon">
@@ -40,6 +41,7 @@ const  SignUp = () => {
                                     <input type="url" name="url" id="url"/>
                                 <label htmlFor="password">Password:</label>
                                     <input type="password" name="password" id="password"/>
+                                    
                                 <div className="ppal-btn">
                                     <Link to="/" className="btn-form" type="submit">
                                         Sign Up
