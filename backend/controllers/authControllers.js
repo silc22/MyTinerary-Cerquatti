@@ -4,63 +4,31 @@ const bcryptjs = require('bcryptjs')
 
 const authControllers = {
 
-    // + al momento de registrar usuarios en nuestra aplicación, 
-    // + hay situaciones que tenemos tener en cuenta  
-    // + cuales son estas situaciones a tener en cuenta ?
-
-    // - 1) que no haya usuarios repetidos
-    // - 2) seguridad de la contraseña
-    // - 3) validacion de datos
-
-
-    newUser: async(req, res) => {
-        
-        let { userName, password } = req.body      
-        // tengo que hashear (hash) la contraseña y guardarla en la base de datos
-        console.log(req.body)
+    addNewUser: async (req, res) => {
+        const {name, lastName, country, email, url, password, google} = req.body
+        const hashedPassword = bcryptjs.hashSync(password)
+        const newUser = new User({name, lastName, country, email, url, password: hashedPassword, google})
         try {
-
-            const userExists = await User.findOne({userName})
-            if (userExists){
-                res.json({success: false, error:"El nombre de usuario ya esta en uso", response:null})
-            }else{
-
-                const contraseñaHasheada = bcryptjs.hashSync(password, 10)
-
-                const newUser = new User({
-                    userName, 
-                    password:contraseñaHasheada
-                })
-            
-                await newUser.save()
-                res.json({success: true, response: newUser, error: null})
-            }
-        
-        }catch(error){
-            res.json({success: false, response: null, error: error})
+            let repeatedUser = await User.findOne({email: email})
+            if (repeatedUser) throw new Error
+            await newUser.save()
+            res.json({success: true, response: {name: newUser.name, _id: newUser._id}, error: null})
+        } catch(error) {
+            res.json({success: false, response: error.message})
         }
+    }, 
 
-        
-    },
-    loginAccount: async(req, res)=>{
-        const { userName, password } = req.body
-        console.log(req.body)
+    signUser: async (req,res) => {
+        const {email, password, google} = req.body 
         try {
-
-            const userExists = await User.findOne({userName})
-            if (!userExists){
-                res.json({success: true, error:"El usuario y/o contraseña incorrectos"})
-            }else{
-                let contraseñaCoincide = bcryptjs.compareSync(password, userExists.password)
-                if (contraseñaCoincide) {
-                    res.json({success:true, response:{userName} ,error:null})
-                }else{
-                    res.json({success: true, error:"El usuario y/o contraseña incorrectos"})
-                }
-            }
-
-        }catch(error){
-            res.json({success: false, response: null, error: error})
+            let savedUser = await User.findOne({email})
+            if (savedUser.google && !google) throw new Error ("Invalid email")
+            if (!savedUser) throw new Error ("Email and/or password incorrect")
+            let match = bcryptjs.compareSync(password, savedUser.password)
+            if (!match) throw new Error ("Email and/or password incorrect")
+            res.json({success: true, response: {name: savedUser.name}})
+        } catch (error) {
+            res.json({success: false, response: error.message})
         }
     }
 

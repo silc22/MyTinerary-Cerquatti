@@ -6,7 +6,7 @@ const validator = require('../config/validator')
 
 const { getCities, getCity, addCity, deleteCity, modifyCity } = citiesControllers
 const { itinerarioTodos, agregarItinerario, conseguirItinerario, borarItinerario, modificarItinerario, conseguirItinerarioDeUnaCiudad } = itinerariesControllers
-const { newUser, loginAccount } = authControllers
+const { addNewUser, signUser } = authControllers
 
 Router.route('/cities')
 .get(getCities)
@@ -32,9 +32,9 @@ Router.route('/itinerary/:idCity')
 .get(conseguirItinerarioDeUnaCiudad)
 
 Router.route('/auth/signUp')
-.post(newUser, validator)
+.post(addNewUser, validator)
 
 Router.route('/auth/signIn')
-.post(loginAccount)
+.post(signUser)
 
 module.exports = Router

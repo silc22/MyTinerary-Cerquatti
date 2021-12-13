@@ -1,41 +1,34 @@
-const axios = require('axios')
+import axios from 'axios'
 
 const authActions = {
 
-    registerUser: (userName,password) =>{
-        return async(dispatch, getState)=>{
-            try {
-                // eslint-disable-next-line
-                const user = await axios.post('http://localhost:4000/api/auth/signUp',{userName,password})
-                if(user.data.success && !user.data.error){
-                    
-                    dispatch({type:'USER', payload:{userName}})
-                }else{
-                    // alert(user.data.error)
-                    console.error(user.data.response)
-                    return {errores: [{message:user.data.error}]}
-                }
-            }catch(error){
+    signUp: (newUser) => {
+        return async (dispatch, getState) => {
+            let response = await axios.post("http://localhost:4000/api/auth/signUp", {...newUser})
+            if (response.data.success){
+                dispatch({type: "LOGGED", payload: response.data.response})
                 
             }
+            else {
+                console.log(response.data.errors)
+            }
+           return response 
         }
     },
-    LogIn: (userName,password) => {
-        return async(dispatch, getState)=>{
-            try {
-                console.log(userName,password)
-                const user = await axios.post('http://localhost:4000/api/auth/signIn',{userName, password})
-                if(user.data.success && !user.data.error){
-                    dispatch({type:'usuario', payload:{userName:user.data.response}})
-                }else{
-                    alert(user.data.error)
-                }
-            }catch(error){
-                console.error(error)
+
+    signIn: (signUser) => {
+        return async (dispatch, getState) => {
+            let response = await axios.post("http://localhost:4000/api/auth/signIn", {...signUser})
+            if (response.data.success){
+                dispatch({type: "LOGGED", payload: response.data.response})   
             }
+            else {
+                console.log(response.data.response)
+            }
+            return response
         }
-    }
+    },
 }
 
 
-module.exports = authActions
+export default authActions

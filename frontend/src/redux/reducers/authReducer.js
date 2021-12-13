@@ -1,12 +1,9 @@
 
-const initialState = {
-    usuario:{userName:''},
-}
 
-const authReducer = (state = initialState, action)=>{
+const authReducer = (state = {name: null, _id: null}, action)=>{
 
     switch(action.type){
-       case 'USER':
+       case 'LOGGED':
             return {
                 ...state,
                 usuario: action.payload
