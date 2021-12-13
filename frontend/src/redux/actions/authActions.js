@@ -5,6 +5,7 @@ const authActions = {
     signUp: (newUser) => {
         return async (dispatch, getState) => {
             let response = await axios.post("http://localhost:4000/api/auth/signUp", {...newUser})
+            console.log(response)
             if (response.data.success){
                 dispatch({type: "LOGGED", payload: response.data.response})
                 

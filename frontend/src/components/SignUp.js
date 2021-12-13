@@ -21,7 +21,6 @@ const  SignUp = (props) => {
         email: "",
         url: "",
         password: "",
-        google: "",
     })
 
     const inputHandler = (e) => {

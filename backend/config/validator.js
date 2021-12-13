@@ -17,6 +17,7 @@ const validator = (req, res, next) => {
         password: joi.string().trim().min(3).required().messages({
             "string.empty": "You must complete the field password"
         }),
+        url: joi.string().required(), 
         email: joi.string().email().required(), 
         google: joi.boolean(), 
     })

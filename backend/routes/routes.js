@@ -32,7 +32,7 @@ Router.route('/itinerary/:idCity')
 .get(conseguirItinerarioDeUnaCiudad)
 
 Router.route('/auth/signUp')
-.post(addNewUser, validator)
+.post(validator, addNewUser)
 
 Router.route('/auth/signIn')
 .post(signUser)
