@@ -20,7 +20,7 @@ const SignIn = (props) => {
     }
 
     const submitForm = () => {
-        props.LogIn(signUser)
+        props.signIn(signUser)
     }
 
     const responseGoogle = (res) => {

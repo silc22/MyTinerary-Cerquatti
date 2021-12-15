@@ -1,7 +1,6 @@
 
-
-const authReducer = (state = {name: null, _id: null}, action)=>{
-
+const authReducer = (state =  {usuario:{email:''}}, action)=>{
+    console.log(action)
     switch(action.type){
        case 'LOGGED':
             return {
