@@ -3,6 +3,7 @@ const citiesControllers = require('../controllers/citiesControllers');
 const itinerariesControllers = require('../controllers/itinerariesControllers');
 const authControllers = require('../controllers/authControllers')
 const validator = require('../config/validator')
+const passport = require('../config/passport')
 
 const { getCities, getCity, addCity, deleteCity, modifyCity } = citiesControllers
 const { itinerarioTodos, agregarItinerario, conseguirItinerario, borarItinerario, modificarItinerario, conseguirItinerarioDeUnaCiudad } = itinerariesControllers
@@ -36,5 +37,6 @@ Router.route('/auth/signUp')
 
 Router.route('/auth/signIn')
 .post(signUser)
+
 
 module.exports = Router

@@ -9,7 +9,6 @@ const authActions = {
             if (response.data.success){
                 localStorage.setItem("token", response.data.response.token)
                 dispatch({type: "LOGGED", payload: response.data.response})
-                
             }
             else {
                 console.log(response.data.errors)

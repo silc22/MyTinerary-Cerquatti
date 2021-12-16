@@ -1,6 +1,7 @@
+const initialState = {usuario:{email:''}}
 
-const authReducer = (state =  {usuario:{email:''}}, action)=>{
-    console.log(action)
+
+const authReducer = (state = initialState, action)=>{
     switch(action.type){
        case 'LOGGED':
             return {
