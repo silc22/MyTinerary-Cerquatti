@@ -8,6 +8,7 @@ module.exports = passport.use(
         {
     jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: "cohort24"
+    // no encuentra el .env donde esta la secret key
     },
     (jwt_payload,done)=>{
     User.findOne({_id:jwt_payload._doc._id})
@@ -22,5 +23,4 @@ module.exports = passport.use(
         console.log(err)
         return done(err,false)
     })
-
 }))

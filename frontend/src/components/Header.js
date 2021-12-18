@@ -1,9 +1,12 @@
 import React from 'react';
 import { Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-
+import { useSelector, useDispatch } from 'react-redux';
+import authActions from '../redux/actions/authActions';
 
 function Header() {
+    const usuario = useSelector(state => state.authReducer.usuario)
+    const dispatch = useDispatch()
 
     return (
         <div className="costumBg" variant="dark">
@@ -15,10 +18,21 @@ function Header() {
                 <Nav.Link as={Link} to="/cities" className="link-nav">Cities</Nav.Link>
             </div>
             <div className="dropdown-nav">
+                {
+                    usuario.url ? 
+                    <> 
+                    <div>
+                    <img src={usuario.url} width="30" alt={usuario.name}/>
+                    </div>
+                    <NavDropdown className="link-nav" id="basic-nav-dropdown">
+                        <NavDropdown.Item onClick={()=> dispatch(authActions.logOut())}>⬅️ Log out</NavDropdown.Item>
+                    </NavDropdown></>
+                :
                 <NavDropdown title={<i className="fas fa-user"></i>} className="link-nav" id="basic-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/signIn">➡️ Log In</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/signUp">👤+ Sign Up </NavDropdown.Item>
                 </NavDropdown>
+                }
             </div>
         </div>
     )

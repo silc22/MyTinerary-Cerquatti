@@ -4,7 +4,6 @@ const passport = require('passport');
 const Router = require('./routes/routes');
 require('dotenv').config();
 require('./config/database');
-require('./config/validator')
 
 
 const app = express()
@@ -16,7 +15,7 @@ app.use('/api', Router)
 
 
 app.listen(4000, () => {
-    console.log("hola este es el sv")
+    console.log("Server running on port 4000")
 })
 
 

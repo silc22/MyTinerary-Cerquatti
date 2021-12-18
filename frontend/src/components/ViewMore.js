@@ -1,5 +1,6 @@
 import React from 'react'
 import { Accordion } from 'react-bootstrap'
+import Activities from './Activities'
 
 const viewMore = () => {
 
@@ -11,7 +12,7 @@ const viewMore = () => {
                         View More
                     </Accordion.Header>
                     <Accordion.Body>
-                        UNDER CONSTRUCTION
+                        <Activities/>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>

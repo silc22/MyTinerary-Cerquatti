@@ -703,12 +703,12 @@ body::-webkit-scrollbar-thumb{
 
 .itinerary-container-card{
   display: flex;
+  min-height: 60vh;
   flex-flow: column nowrap;
   justify-content: space-evenly;
   border-radius: 5px;
   margin: 1.5rem;
   min-width: 40%;
-  min-height: 60vh;
   background:#f8f8f8;
 }
 
@@ -1060,3 +1060,14 @@ select::-webkit-scrollbar-thumb{
   }
 
 }
+
+
+/* ACTIVITIES */
+.activity-container{
+  min-height: 60vh;
+}
+
+
+
+
+/* COMMENTS */

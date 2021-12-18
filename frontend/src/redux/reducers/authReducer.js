@@ -1,4 +1,9 @@
-const initialState = {usuario:{email:''}}
+const initialState = 
+    {
+        usuario:
+        {
+        name: "",
+        }}
 
 
 const authReducer = (state = initialState, action)=>{
@@ -8,10 +13,15 @@ const authReducer = (state = initialState, action)=>{
                 ...state,
                 usuario: action.payload
             }
+
+        case 'LOG_OUT':
+            return{
+                ...initialState,
+            }
         default:
             return state
     }
-
+    
 
 }
 export default authReducer

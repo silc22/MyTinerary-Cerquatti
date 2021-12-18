@@ -3,11 +3,13 @@ const citiesControllers = require('../controllers/citiesControllers');
 const itinerariesControllers = require('../controllers/itinerariesControllers');
 const authControllers = require('../controllers/authControllers')
 const validator = require('../config/validator')
-const passport = require('../config/passport')
+const passport = require('../config/passport');
+const activitiesControllers = require('../controllers/activitiesControllers');
 
 const { getCities, getCity, addCity, deleteCity, modifyCity } = citiesControllers
 const { itinerarioTodos, agregarItinerario, conseguirItinerario, borarItinerario, modificarItinerario, conseguirItinerarioDeUnaCiudad } = itinerariesControllers
-const { addNewUser, signUser } = authControllers
+const { addNewUser, signUser, tokenVerification } = authControllers
+const { addActivity, getActivity } = activitiesControllers
 
 Router.route('/cities')
 .get(getCities)
@@ -18,7 +20,6 @@ Router.route('/city/:id')
 .get(getCity)
 .delete(deleteCity)
 .put(modifyCity)
-
 
 Router.route('/itineraries')
 .get(itinerarioTodos)
@@ -37,6 +38,22 @@ Router.route('/auth/signUp')
 
 Router.route('/auth/signIn')
 .post(signUser)
+
+Router.route('/auth/signIn/token')
+.post(passport.authenticate("jwt",{session:false}),tokenVerification)
+// middlewear--->si el token es autentico llega al controller "tokenVerification", sino corta. 
+
+Router.route('/activities')
+.post(addActivity)
+
+Router.route('/activities/:itineraryId')
+.get(getActivity)
+
+// router.route("/comments/:id")
+// .put(passport.authenticate("jwt", {session: false}),itinerariesControllers.editComment)
+
+// router.route("/itinerary/like/:id")
+// .put(passport.authenticate("jwt", {session: false}),itinerariesControllers.likeDislikeItinerary)
 
 
 module.exports = Router

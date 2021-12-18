@@ -56,7 +56,7 @@ const SignIn = (props) => {
                                 <Link to="" >
                                 <GoogleLogin
                                     clientId="364580156359-glg6vkvjvnag4e7ldm36478tge8h4qft.apps.googleusercontent.com"
-                                    buttonText="Sign Up with Goolge"
+                                    buttonText="Sign In with Goolge"
                                     onSuccess={responseGoogle}
                                     onFailure={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
