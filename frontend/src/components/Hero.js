@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 
 function Hero(){
-    
+
 
     return (
             <div className="hero">

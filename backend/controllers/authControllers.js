@@ -10,13 +10,14 @@ const authControllers = {
             let repeatedUser = await User.findOne({email: email})
             if (repeatedUser) throw new Error
             else{
-            const hashedPassword = bcryptjs.hashSync(password)
-            const newUser = new User({name, lastName, country, email, url, password: hashedPassword, google})
-            const token = await jwt.sign({...newUser}, process.env.SECRET_KEY) 
-            await newUser.save()
+                const hashedPassword = bcryptjs.hashSync(password)
+                const newUser = new User({name, lastName, country, email, url, password: hashedPassword, google})
+                const token = await jwt.sign({...newUser}, process.env.SECRET_KEY) 
+                await newUser.save()
             res.json({success: true, response: {name: newUser.name, _id: newUser._id, token:token, url: newUser.url}, error: null})
         }} catch(error) {
-            res.json({success: false, response: error.message})
+            console.log(error)
+            res.json({success: false, response:[{ message: "this email is already registered" }]})
         }
     }, 
 
@@ -49,7 +50,6 @@ const authControllers = {
     }, 
 
     tokenVerification: (req, res) => {
-        console.log(req.user)
         res.json({success:true, response: {name: req.user.name, url: req.user.url, _id: req.user._id}})
     }
 }

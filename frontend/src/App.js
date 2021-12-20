@@ -33,8 +33,8 @@ function App() {
       <Header />
         <Routes>
           <Route  path="/"  element={<Home/>}/>
-          { !usuario.name && <Route  path="/signUp"  element={<SignUp/>}/> }
-          { !usuario.name && <Route  path="/signIn"  element={<SignIn/>}/> }
+          { !usuario.name && <Route path="/signUp"  element={<SignUp/>}/> }
+          { !usuario.name && <Route path="/signIn"  element={<SignIn/>}/> }
           <Route path="*" element={<Home/>}/>
           <Route path="/cities" element={<Cities/>}/>
           <Route path="/city/:id" element={<City />} />

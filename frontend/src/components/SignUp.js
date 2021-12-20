@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 import {connect} from "react-redux"
 import authActions from "../redux/actions/authActions"
 import GoogleLogin from 'react-google-login'
+import Swal from 'sweetalert2'
 
 
-const  SignUp = (props) => {
+const SignUp = (props) => {
     const [countries, setCountries] = useState([])
+    const [errorInput, setErrorInput] = useState({})
+
 
     useEffect(() => {
         axios.get('https://restcountries.com/v2/all?fields=name')
@@ -32,21 +35,89 @@ const  SignUp = (props) => {
         })
     }
 
-    const responseGoogle = (res) => {
-        console.log(res)
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    const responseGoogle = (response) => {
         let googleUser = {
-            name: res.profileObj.name,
-            email: res.profileObj.email, 
-            password: res.profileObj.googleId,
+            name: response.profileObj.givenName,
+            lastName: response.profileObj.familyName,
+            password: response.profileObj.googleId,
+            email: response.profileObj.email,
+            url: response.profileObj.imageUrl,
+            country: "Undefined",
             google: true,
         }
         props.signUp(googleUser)
-        .then((response) => response.data.success)
-        .catch((error) => console.log(error))
+        .then((response) => {
+            if (response.data.success){
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Your account has been created!'
+                })
+            }
+            else{
+            setErrorInput(response.data.response)
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+            Toast.fire({
+                icon: 'error',
+                title: 'Something went wrong! Come back later!'
+            })
+        })
     }
 
-    const submitForm = () => {
-        props.signUp(newUser)
+    const submitForm = (e) => {
+        e.preventDefault()
+        let info = Object.values(newUser).some((infoUser) => infoUser === "")
+        if (info) {
+            Toast.fire({
+                icon: 'error',
+                title: 'There are fields incomplete, please complete them.'
+            })
+        } else {
+            props.signUp(newUser)
+        .then((response) => {
+            if (response.data.success){
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Your account has been created!'
+                })
+            } else if (response.data.errors){
+                setErrorInput({})
+                response.data.errors.map(error => setErrorInput(messageError => {
+                        return {
+                            ...messageError, 
+                        [error.path]: error.message,
+                        }
+                    })  
+                )
+            } else {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'That email has already been used! Try with another one.'
+                })
+            }
+        })        
+        .catch((error) => {
+            console.log(error)
+            Toast.fire({
+                icon: 'error',
+                title: 'We are having technical difficulties! Come back later!'
+                })
+            })
+        }
     }
 
 
@@ -58,8 +129,10 @@ const  SignUp = (props) => {
                             <h2>Register account 🚀</h2>
                             <label htmlFor="name">Name:</label>
                                 <input type="text" name="name" id="name" onChange={inputHandler}/>
+                                <p className='text-danger'>{errorInput.name}</p>
                             <label htmlFor="lastName">Last Name:</label>
-                                <input type="text" name="lastName" id="lastName" onChange={inputHandler}/>                   
+                                <input type="text" name="lastName" id="lastName" onChange={inputHandler}/>
+                                <p className='text-danger'>{errorInput.lastName}</p>                 
                             <div className="select-container">
                                 <p>Country:</p>
                                 <select name="country" id="country-select" onChange={inputHandler}>
@@ -69,12 +142,15 @@ const  SignUp = (props) => {
                             </div>
                             <label htmlFor="email">Email:</label>
                                 <input type="email" name="email" id="email" onChange={inputHandler} />
+                                <p className='text-danger'>{errorInput.email}</p>   
                             <label htmlFor="url">URL Photo:</label>
                                 <input type="url" name="url" id="url" onChange={inputHandler} />
+                                <p className='text-danger'>{errorInput.url}</p>   
                             <label htmlFor="password">Password:</label>
                                 <input type="password" name="password" id="password" onChange={inputHandler} />
+                                <p className='text-danger'>{errorInput.password}</p>   
                             <div className="ppal-btn">
-                                <Link to="/" className="btn-form" onClick={submitForm}>
+                                <Link to="/" className="btn-form" onClick={(e) => submitForm(e)}>
                                     Sign Up
                                 </Link>
                                 <Link to={"/"}>

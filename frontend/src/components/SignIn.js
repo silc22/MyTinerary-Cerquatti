@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import authActions from '../redux/actions/authActions';
 import GoogleLogin from 'react-google-login'
-import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 
 
 const SignIn = (props) => {
-    const { usuario } = useSelector(state => state.authReducer)
+    const [errorInput, setErrorInput] = useState({})
 
 
     const [signUser, setSignUser] = useState ({
@@ -23,8 +23,47 @@ const SignIn = (props) => {
     }
 
     const submitForm = () => {
-        props.signIn(signUser)
+        let info = Object.values(signUser).some((infoUser) => infoUser === "")
+        if (info) {
+            Toast.fire({
+                icon: 'error',
+                title: 'There are fields incomplete, please complete them.'
+            })
+        } else {
+            props.signIn(signUser)
+        .then((response) => {
+            if (!response.data.success){
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Email and/or password incorrect'
+                })
+                alert(response.data.response)
+            } else {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Welcome back!'
+                })
+            }
+        })        
+        .catch((error) => Toast.fire({
+                icon: 'error',
+                title: 'Email and/or password incorrect'
+            })
+        )
+        }
     }
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
     const responseGoogle = (res) => {
         let googleUser = {
@@ -33,6 +72,23 @@ const SignIn = (props) => {
             google: true,
         }
         props.signIn(googleUser)
+        .then((response) => {
+            if (response.data.success){
+                Toast.fire({
+                    icon: 'success',
+                    title: "It's good to see you again! 😄"
+                })
+            }else{
+            setErrorInput(response.data.response)
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+            Toast.fire({
+                icon: 'error',
+                title: 'Something went wrong!'
+            })
+        })
     }
 
     return (
@@ -40,11 +96,7 @@ const SignIn = (props) => {
                 <div className="form-neon">
                     <form>
                         <div className="inputs-container">
-                        {
-                        usuario.name ? <h2>¡Welcome {usuario.name}!</h2>
-                        : <h2>Hello!</h2>
-                        }
-                            
+                        <h2>Hello!</h2>
                             <label htmlFor="email">Email:</label>
                                 <input type="email" name="email" id="email" onChange={inputHandler}/>
                             <label htmlFor="password">Password:</label>

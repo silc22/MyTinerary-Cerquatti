@@ -1061,6 +1061,17 @@ select::-webkit-scrollbar-thumb{
 
 }
 
+/* user PHOTO */
+.user-url img{
+  border-radius: 50%;
+  object-fit: cover;
+  width: 35px;
+  height: 35px;
+}
+
+.link-nav{
+  margin-bottom: unset !important;
+}
 
 /* ACTIVITIES */
 .activity-container{
@@ -1068,6 +1079,11 @@ select::-webkit-scrollbar-thumb{
 }
 
 
+.text-danger{
+  color:red;
+  font-size: 10px;
+  font-weight: bold;
+}
 
 
 /* COMMENTS */
