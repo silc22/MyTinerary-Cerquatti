@@ -1071,6 +1071,31 @@ select::-webkit-scrollbar-thumb{
 
 .link-nav{
   margin-bottom: unset !important;
+  font-size: 2vh;
+}
+
+@media screen and (max-width: 450px){
+  
+  .costumeBg{
+    justify-content: unset;
+  }
+
+  .nav-link{
+    padding: 0.5rem, 0.2rem !important
+  }
+
+  .dropdown-nav{
+    flex: 1 1 auto;
+    padding: 0
+  }
+
+  .logo-container{
+    padding-left: 0.2rem !important;
+    flex: 1 1 auto;
+    padding: 0
+  }
+
+
 }
 
 /* ACTIVITIES */

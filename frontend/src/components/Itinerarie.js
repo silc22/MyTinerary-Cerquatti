@@ -13,7 +13,7 @@ const Itinerarie = ({ itineraryProps }) => {
                     { itineraryProps.length > 0 ?
                     itineraryProps.map((element) => {
                         return (
-                            <div className="itinerary-container-card">
+                            <div className="itinerary-container-card" key={element.id}>
                                 <h3>{element.itinerarioNombre}</h3>
                                 <div className="img-info-container">
                                     <div key={element._id} className="itinerary-img-container">
