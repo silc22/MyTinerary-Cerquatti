@@ -37,7 +37,7 @@ const SignIn = (props) => {
                     icon: 'error',
                     title: 'Email and/or password incorrect'
                 })
-                alert(response.data.response)
+                // alert(response.data.response)
             } else {
                 Toast.fire({
                     icon: 'success',
