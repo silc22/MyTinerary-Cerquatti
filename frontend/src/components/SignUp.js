@@ -171,7 +171,7 @@ const SignUp = (props) => {
                             </Link>
                             <div className="signUp">
                                 <p>Already have an account?</p>
-                                <Link as={Link} to={"/"} className="btn-form">
+                                <Link as={Link} to="/signIn" className="btn-form">
                                     Sign In
                                 </Link>
                             </div>

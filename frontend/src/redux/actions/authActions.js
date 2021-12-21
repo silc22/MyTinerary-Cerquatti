@@ -10,7 +10,7 @@ const authActions = {
                 dispatch({type: "LOGGED", payload: response.data.response})
             }
             else {
-                console.log(response.data.errors)
+                console.log(response.data.response)
             }
            return response 
         }

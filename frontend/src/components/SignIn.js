@@ -102,7 +102,7 @@ const SignIn = (props) => {
                             <label htmlFor="password">Password:</label>
                                 <input type="password" name="password" id="password" onChange={inputHandler} />
                             <div className="ppal-btn">
-                                <Link onClick={submitForm} to="" className="btn-form" type="submit">
+                                <Link onClick={submitForm} to="/" className="btn-form" type="submit">
                                     Log In
                                 </Link>
                                 <Link to="" >
@@ -123,7 +123,7 @@ const SignIn = (props) => {
                             </Link>
                             <div className="signUp">
                                 <p>Don't have an account?</p>
-                                <Link as={Link} to={"/"} className="btn-form">
+                                <Link as={Link} to="/signUp" className="btn-form">
                                     Sign Up
                                 </Link>
                                 

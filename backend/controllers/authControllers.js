@@ -17,7 +17,7 @@ const authControllers = {
             res.json({success: true, response: {name: newUser.name, _id: newUser._id, token:token, url: newUser.url}, error: null})
         }} catch(error) {
             console.log(error)
-            res.json({success: false, response:[{ message: "this email is already registered" }]})
+            res.json({success: false, response:{ message: "this email is already registered" }})
         }
     }, 
 
