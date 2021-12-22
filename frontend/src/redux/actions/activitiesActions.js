@@ -4,8 +4,9 @@ const activitiesActions = {
     getActivitiesByItinerary: (itineraryId) => {
         return async (dispatch, getState) => {
             try {
-                let response = await axios.get(`http://localhost:4000/api/activities/${itineraryId}`)
+                let response = await axios.get('http://localhost:4000/api/activities/'+itineraryId)
                 let data = response.data.response
+                console.log(data)
                 return data
             } catch (error){
                 return {

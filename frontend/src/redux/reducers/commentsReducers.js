@@ -1,6 +1,6 @@
 const commentsReducers = (state= {allComments:[], itineraryId: ""}, action) => {
     switch(action.type) {
-        case "POST_COMMENT": 
+        case "COMMENT": 
             return {
                 ...state,
                 comments: action.payload
