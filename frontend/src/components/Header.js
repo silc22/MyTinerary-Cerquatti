@@ -31,7 +31,7 @@ function Header() {
                         <img src={usuario.url} alt={usuario.name}/>
                     </div>
                     <NavDropdown className="link-nav" id="basic-nav-dropdown">
-                        <NavDropdown.Item onClick={()=> dispatch(authActions.logOut())}>⬅️ Log out</NavDropdown.Item>
+                        <NavDropdown.Item  as={Link} to="/" onClick={()=> dispatch(authActions.logOut())}>⬅️ Log out</NavDropdown.Item>
                     </NavDropdown></>
                 :
                 <NavDropdown title={<i className="fas fa-user"></i>} className="link-nav" id="basic-nav-dropdown">

@@ -695,7 +695,7 @@ body::-webkit-scrollbar-thumb{
 .itinerary-contenido{
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -704,11 +704,11 @@ body::-webkit-scrollbar-thumb{
 .itinerary-container-card{
   display: flex;
   min-height: 60vh;
+  min-width: 60vw;
   flex-flow: column nowrap;
   justify-content: space-evenly;
   border-radius: 5px;
-  margin: 1.5rem;
-  min-width: 40%;
+  margin: 1.5rem; 
   background:#f8f8f8;
 }
 
@@ -744,7 +744,7 @@ body::-webkit-scrollbar-thumb{
 .itinerary-img-container img{
   object-fit: cover;
   width: 90%;
-  height: 8rem;
+  height: 90%;
   border-radius: 5px;
 }
 
@@ -765,11 +765,19 @@ body::-webkit-scrollbar-thumb{
   text-transform: uppercase;
 }
 
+.name-itinerary .hashtags{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.name-itinerary .hashtags p{
+  padding-right: 2px;
+}
+
 .name-usuario{
   margin: .5rem;
   text-align: center;
   text-transform: uppercase;
-
 }
 
 .viewMore-container{
@@ -1100,8 +1108,25 @@ select::-webkit-scrollbar-thumb{
 
 /* ACTIVITIES */
 .activity-container{
-  min-height: 60vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
 }
+
+.container-activity{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+}
+
+.activity-container img{
+  width: 90%;
+  height: 15rem;
+  object-fit: cover;
+}
+
 
 
 .text-danger{

@@ -49,7 +49,6 @@ const itinerariesControllers = {
         res.json({response: city})
     },
 
-
     modificarItinerario: async(req,res)=>{
         let id = req.params.id
         let itinerarios = req.body
@@ -69,6 +68,22 @@ const itinerariesControllers = {
         }catch(error){
             console.log(error)
         }
+    },
+
+    likesItinerary:(req,res) =>{
+        Itinerary.findOne({_id: req.params.id})
+        .then((itinerary) =>{
+            if(itinerary.likes.includes(req.user._id)){
+                Itinerary.findOneAndUpdate({_id:req.params.id}, {$pull:{likes:req.user.id}},{new:true})
+                .then((newItinerary)=> res.json({success:true, response:newItinerary.likes}))
+                .catch((error) => console.log(error))
+            }else{
+                Itinerary.findOneAndUpdate({_id: req.params.id}, {$push:{likes:req.user.id}},{new:true})
+                .then((newItinerary) => res.json({success:true, response:newItinerary.likes}))
+                .catch((error) => console.log(error))
+            }
+        })
+        .catch((error) => res.json({success:false, response:error}))
     },
 
     editComment: async (req, res) => {
@@ -110,24 +125,7 @@ const itinerariesControllers = {
                 }
                 break  
         }
-    },
-
-    likesItinerary:(req,res) =>{
-        Itinerary.findOne({_id: req.params.id})
-        .then((itinerary) =>{
-            if(itinerary.likes.includes(req.user._id)){
-                Itinerary.findOneAndUpdate({_id:req.params.id}, {$pull:{likes:req.user.id}},{new:true})
-                .then((newItinerary)=> res.json({success:true, response:newItinerary.likes}))
-                .catch((error) => console.log(error))
-            }else{
-                Itinerary.findOneAndUpdate({_id: req.params.id}, {$push:{likes:req.user.id}},{new:true})
-                .then((newItinerary) => res.json({success:true, response:newItinerary.likes}))
-                .catch((error) => console.log(error))
-            }
-        })
-        .catch((error) => res.json({success:false, response:error}))
-    },
-
+    }
 }
 
 module.exports = itinerariesControllers;

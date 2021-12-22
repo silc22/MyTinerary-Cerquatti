@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { Accordion } from 'react-bootstrap'
 import Activities from './Activities'
 import activitiesActions from "../redux/actions/activitiesActions"
+import Comments from './Comments'
+
 
 const Itineray = ({ element }) => {
 
@@ -32,9 +34,11 @@ const Itineray = ({ element }) => {
                     <p><span>Price: </span>{("💵").repeat(element.price)}</p>
                     <p><span>Duration: </span>{("⌛").repeat(element.duracion)}</p>
                     <p><span>Likes:</span>{("♥")}</p>
-                    <p><span>Hashtags: </span></p>
-                    {element.hashtags.map((hashtag, index) => {
-                        return (<p key={index}>{hashtag}</p>)})}
+                    <div className="hashtags">
+                        <p><span>Hashtags: </span></p>
+                        {element.hashtags.map((hashtag, index) => {
+                        return (<p key={index} >{hashtag}</p>)})}   
+                    </div>
                 </div> 
             </div>
             <div className="viewMore-container">
@@ -46,10 +50,11 @@ const Itineray = ({ element }) => {
                             { showActivities.map((activity) => {
                                 return <Activities  data={activity} />
                             })}
+                        < Comments  data={element}/>   
                         </Accordion.Body>
                 </Accordion>
             </div>
-              </div>
+        </div>
         </>
     )
 
