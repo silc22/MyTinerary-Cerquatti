@@ -172,8 +172,9 @@
   .user-url-comment img{
     border-radius: 50%;
     object-fit: cover;
-    width: 60%;
-    height: 90%;
+    width: 45px;
+    height: 45px;
+    padding-right: 3px;
   }
 
   .modifyCommentIcons-container{

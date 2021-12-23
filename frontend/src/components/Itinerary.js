@@ -12,10 +12,12 @@ const Itineray = ( props ) => {
     
     const dispatch = useDispatch()
     const { element, token } = props
-    const [showActivities, setShowActivities]= useState([])
+    // const [showActivities, setShowActivities]= useState([])
     const [like, setLike] = useState(false);
     const [itinerariesLikes, setItinerariesLikes] = useState(element.likes)
-    
+    const [viewMoreLess, setViewMoreLess] = useState(false);
+    const [activity, setActivities] = useState([]);
+
     const likeOrDislike = itinerariesLikes.includes(element._id) ? '/heart-red.png' : '/heart.png';
     
     const Toast = Swal.mixin({
@@ -43,16 +45,32 @@ const Itineray = ( props ) => {
     setLike(true)
     }
 
-    useEffect(()=>{
-        return async () =>{
-            try{
-                let response = await dispatch(activitiesActions.getActivitiesByItinerary(element._id))
-                setShowActivities(response)
-            }catch (error){
-                console.log(error)
+    async function getActivities() {
+        try {
+            let res = await props.getActivitiesByItinerary(element._id)
+            if(res) {
+                setActivities(res)
             }
+        } catch(err) {
+            console.error(err)
         }
-    },[])
+    }
+
+    // useEffect(()=>{
+    //     return async () =>{
+    //         try{
+    //             let response = await dispatch(activitiesActions.getActivitiesByItinerary(element._id))
+    //             setShowActivities(response)
+    //         }catch (error){
+    //             console.log(error)
+    //         }
+    //     }
+    // },[])
+
+    const handlerActivities = () => {
+        setViewMoreLess(!viewMoreLess)
+        getActivities()
+    }
 
     return(
         <>
@@ -83,11 +101,11 @@ const Itineray = ( props ) => {
             </div>
             <div className="viewMore-container">
                 <Accordion defaultActiveKey="1">
-                        <Accordion.Header>
-                            View More
-                        </Accordion.Header> 
+                        <Accordion.Header onClick={() => handlerActivities()}>
+                                { viewMoreLess ?  "View less" : "View more"}
+                        </Accordion.Header>
                         <Accordion.Body>
-                        <Activities  data={showActivities} />
+                        <Activities  data={activity} />
                         < Comments  itineraryId={element._id} itineraryComments={element.comments}/>   
                         </Accordion.Body>
                 </Accordion>
@@ -106,7 +124,8 @@ const mapStateToProps = (state)=>{
 }
 
 const mapDispatchToProps = {
-    likeDislike: initinerariesActions.likeItinerary
+    likeDislike: initinerariesActions.likeItinerary,
+    getActivitiesByItinerary: activitiesActions.getActivitiesByItinerary
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Itineray)
