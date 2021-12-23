@@ -6,13 +6,13 @@ import 'react-toastify/dist/ReactToastify.css'
 import Swal from 'sweetalert2'
 
 
+
 toast.configure()
 
 const Comments = (props)=>{
     
 
     const {itineraryId, userLogged, itineraryComments} = props
-    console.log(userLogged)
     const [allComments, setAllComments] = useState(itineraryComments);
     const [commentContent, setCommentContent] = useState('');
     const [isEditingComment, setIsEditingComment] = useState(false);
@@ -76,12 +76,11 @@ const Comments = (props)=>{
             </div>
             <div className="all-comments-container">
                 {allComments.map((comment, i) => {
-                    console.log(comment)
                     return (
                         <div className="comment" key={i}>
                         <div className="x-alineator">
-                            <div>
-                                <div className="authorComment-img" style={{backgroundImage: `url(${comment.userImg})`}} ></div>
+                            <div className="user-url-comment">
+                                <img src={comment.userImg}></img>
                             </div>
                             <div className="commentContent-container">
                                 
@@ -107,19 +106,18 @@ const Comments = (props)=>{
                                     </>
                                 )}
                             </div>
-
                             {userLogged && comment.userId === userLogged._id && (
-                                <div className="modifyCommentIcons-container">
-                                    <p onClick={()=> startEditingComment(comment.comment)} className={!isEditingComment ? "edit-icon" : "displayNone"}>🖊️</p>
-                                    <p onClick={()=> deleteSingleComment({itineraryId: itineraryId, commentId: comment._id})} className={!isEditingComment ? "delete-icon" : "displayNone"}>🗑️</p>
-                                </div>
+                            <div className="modifyCommentIcons-container">
+                                <p onClick={()=> startEditingComment(comment.comment)} className={!isEditingComment ? "edit-icon" : "displayNone"}>🖊️</p>
+                                <p onClick={()=> deleteSingleComment({itineraryId: itineraryId, commentId: comment._id})} className={!isEditingComment ? "delete-icon" : "displayNone"}>🗑️</p>
+                            </div>
                             )}
                         </div>
-                        </div>
+                    </div>
                     )
                 })}
             </div>
-                <div className="input-container">
+                <div className="input-containers">
                     <input type="text" value={commentContent} onChange={(e)=> setCommentContent(e.target.value)} className="comments-input" placeholder="Send a comment" />
                     
                     <div className="paperPlane-icon" onClick={userLogged ? sendComment : () => notify('Comment')}>

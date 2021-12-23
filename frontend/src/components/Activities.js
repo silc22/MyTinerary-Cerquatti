@@ -1,16 +1,16 @@
 import React from 'react';
 
+
 const Activities = ({data}) => {
-
-
-
+    console.log(data)
     return (
         <>
             <div className="activity-container">
+            {data.map((activity) => 
                 <div className="container-activity">
-                    <img src={data.src}></img>
-                    <p>{data.activityTitle}</p>
-                </div>
+                    <img src={activity.src}></img>
+                    <p>{activity.activityTitle}</p>
+                </div>)}
             </div>
         </>
     )

@@ -13,9 +13,6 @@ const Itineray = ( props ) => {
     const dispatch = useDispatch()
     const { element, token } = props
     const [showActivities, setShowActivities]= useState([])
-    
-    console.log(token)
-    
     const [like, setLike] = useState(false);
     const [itinerariesLikes, setItinerariesLikes] = useState(element.likes)
     
@@ -28,8 +25,8 @@ const Itineray = ( props ) => {
         timer: 3000,
         timerProgressBar: true,
         didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     })
 
@@ -37,7 +34,7 @@ const Itineray = ( props ) => {
         if(!token) {
             Toast.fire({
                 icon: 'error',
-                 title: 'You must be logged to like this post!'
+                title: 'You must be logged to like this post!'
               })  
         }else {
         let response = await props.likeDislike(element._id, token)
@@ -90,9 +87,7 @@ const Itineray = ( props ) => {
                             View More
                         </Accordion.Header> 
                         <Accordion.Body>
-                            { showActivities.map((activity) => {
-                                return <Activities  data={activity} />
-                            })}
+                        <Activities  data={showActivities} />
                         < Comments  itineraryId={element._id} itineraryComments={element.comments}/>   
                         </Accordion.Body>
                 </Accordion>

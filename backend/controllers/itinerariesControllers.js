@@ -104,7 +104,7 @@ const itinerariesControllers = {
            var userInfo = await User.findOne({_id: userId})
            var itineraryCommented = await Itineraries.findOneAndUpdate(
               {_id: itineraryId},
-              {$push: {comments: {userId, userName: userInfo.name, userImg: userInfo.src, comment}}}, 
+              {$push: {comments: {userId, userName: userInfo.name, userImg: userInfo.url, comment}}}, 
               {new: true}
            ) 
         }catch (err){

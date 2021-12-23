@@ -1,0 +1,189 @@
+/* COMMENTS */
+.commentsTittle-container{
+    background: rgb(37,37,37);
+    text-align: center;
+    border-radius: 20px 20px 0px 0px;
+  }
+  
+  .commentsTittle {
+    font-size: 30px;
+    color: white;
+    /* border-radius: 20px 20px 0px 0px; */
+  }
+  
+  .comments-general-container {
+    margin-top: 4vh;
+    width: 100%;
+    height: 40vh;
+    /* background: red; */
+    background: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+  
+  .all-comments-container{
+    margin: 10px 5px 10px 15px;
+    flex-grow: 1;
+    
+    font-size: 18px;
+    overflow-x: auto; 
+  }
+  
+  .all-comments-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+  .all-comments-container::-webkit-scrollbar:vertical {
+    width:10px;
+  }
+  
+  .all-comments-container::-webkit-scrollbar-button:increment, .all-comments-container::-webkit-scrollbar-button {
+    display: none;
+  } 
+  
+  .all-comments-container::-webkit-scrollbar:horizontal {
+    height: 10px;
+  }
+  
+  .all-comments-container::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    /* border: 2px solid #f1f2f3; */
+  }
+  
+  .all-comments-container::-webkit-scrollbar-track {
+    border-radius: 10px;  
+  }
+  
+  
+  .comment {
+    width: 100%;
+    min-height: 4rem;
+    border-bottom: 1px solid gray;
+    /* background: rgb(0,2,54); */
+  }
+  
+  .x-alineator{
+    display: flex;
+  }
+  
+  .authorComment-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    /* border: 1px solid black; */
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .authorComment-img:hover {
+    cursor: pointer;
+  }
+  
+  .commentContent-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0rem 1rem 0 0;
+    align-self: center;
+  }
+  
+  .comment-author {
+    margin-bottom: 0px;
+    display: inline-block;
+  }
+  
+  .comment-author:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .comment-content {
+        margin-bottom: 0px;
+    line-height: 20px;
+  }
+  
+  .editingInput {
+    font-size: 18px;
+    width: 30vw;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+    border: 2px solid black;
+  }
+  
+  .sendEditedIcon {
+    font-size: 30px;
+    margin-left: 6px;
+  }
+  
+  .sendEditedIcon:hover {
+    cursor: pointer;
+  }
+  
+  .displayNone {
+    display: none;
+  }
+  
+  .paperPlane-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    align-self: center;
+    transition: all .2s ease;
+  }
+  
+  .paperPlane-icon p {
+    margin-bottom: unset;
+  }
+  
+  .paperPlane-icon:hover {
+    color: rgb(105, 105, 105);
+    cursor: pointer;
+  }
+  
+  .input-containers {
+    width: 95%;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 42px;
+    margin: 0 auto 20px auto;
+    align-self: flex-end;
+    border: 3px solid rgb(49, 49, 49);
+    border-radius: 5px;
+  }
+  
+  .input-containers input{
+    color: black ;
+  }
+
+
+  .user-url-comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user-url-comment img{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 60%;
+    height: 90%;
+  }
+
+  .modifyCommentIcons-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    justify-self: flex-end;
+  }
+
+  .modifyCommentIcons-container p{
+    margin: unset !important;
+  }
