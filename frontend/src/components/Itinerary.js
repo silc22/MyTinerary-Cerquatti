@@ -1,23 +1,59 @@
 import React, { useEffect , useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Accordion } from 'react-bootstrap'
 import Activities from './Activities'
 import activitiesActions from "../redux/actions/activitiesActions"
 import Comments from './Comments'
+import initinerariesActions from '../redux/actions/initineraryAction'
+import {connect} from "react-redux"
+import Swal from 'sweetalert2'
 
-
-const Itineray = ({ element }) => {
-
+const Itineray = ( props ) => {
+    
     const dispatch = useDispatch()
-
+    const { element, token } = props
     const [showActivities, setShowActivities]= useState([])
+    
+    console.log(token)
+    
+    const [like, setLike] = useState(false);
+    const [itinerariesLikes, setItinerariesLikes] = useState(element.likes)
+    
+    const likeOrDislike = itinerariesLikes.includes(element._id) ? '/heart-red.png' : '/heart.png';
+    
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
-    useEffect( async ()=>{
-        try{
-            let response = await dispatch(activitiesActions.getActivitiesByItinerary(element._id))
-            setShowActivities(response)
-        }catch (error){
-            console.log(error)
+    const likeItinerary = async () => {
+        if(!token) {
+            Toast.fire({
+                icon: 'error',
+                 title: 'You must be logged to like this post!'
+              })  
+        }else {
+        let response = await props.likeDislike(element._id, token)
+        setItinerariesLikes(response.data.response)
+        } 
+    setLike(true)
+    }
+
+    useEffect(()=>{
+        return async () =>{
+            try{
+                let response = await dispatch(activitiesActions.getActivitiesByItinerary(element._id))
+                setShowActivities(response)
+            }catch (error){
+                console.log(error)
+            }
         }
     },[])
 
@@ -33,7 +69,14 @@ const Itineray = ({ element }) => {
                 <div className="name-itinerary">
                     <p><span>Price: </span>{("💵").repeat(element.price)}</p>
                     <p><span>Duration: </span>{("⌛").repeat(element.duracion)}</p>
-                    <p><span>Likes:</span>{("♥")}</p>
+                    <img onClick={!like ? likeItinerary : null} 
+                            src={likeOrDislike}
+                            className='like-heart'
+                            alt='heart'
+                        />
+                        <span className="cont-likes">
+                            {element.likes.length === 1? element.likes : element.likes.length - 1}
+                        </span>
                     <div className="hashtags">
                         <p><span>Hashtags: </span></p>
                         {element.hashtags.map((hashtag, index) => {
@@ -50,7 +93,7 @@ const Itineray = ({ element }) => {
                             { showActivities.map((activity) => {
                                 return <Activities  data={activity} />
                             })}
-                        < Comments  data={element}/>   
+                        < Comments  itineraryId={element._id} itineraryComments={element.comments}/>   
                         </Accordion.Body>
                 </Accordion>
             </div>
@@ -60,4 +103,15 @@ const Itineray = ({ element }) => {
 
 }
 
-export default Itineray
+
+const mapStateToProps = (state)=>{
+    return {
+            token: state.authReducer.token
+    }
+}
+
+const mapDispatchToProps = {
+    likeDislike: initinerariesActions.likeItinerary
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Itineray)

@@ -19,6 +19,7 @@ const authActions = {
     signIn: (signUser) => {
         return async (dispatch, getState) => {
             let response = await axios.post("http://localhost:4000/api/auth/signIn", {...signUser})
+            console.log(response)
             if (response.data.success){
                 localStorage.setItem("token", response.data.response.token)
                 dispatch({type: "LOGGED", payload: response.data.response})

@@ -30,7 +30,7 @@ const authControllers = {
             let match = bcryptjs.compareSync(password, savedUser.password)
             const token = await jwt.sign({...savedUser}, process.env.SECRET_KEY)
             if (!match) throw new Error ("Email and/or password incorrect")
-            res.json({success: true, response: {token:token, name: savedUser.name, url: savedUser.url}, error: null})
+            res.json({success: true, response: {token:token, name: savedUser.name, url: savedUser.url, _id: savedUser._id}, error: null})
         } catch (error) {
             res.json({success: false, response: error.message})
         } 

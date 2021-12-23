@@ -1,19 +1,20 @@
 const initialState = 
-    {
-        usuario:
-        {
-        name: "",
-        }}
+    {   usuario: { name: ""}, 
+        userLogged: null,
+        token: null
+}
 
 
 const authReducer = (state = initialState, action)=>{
     switch(action.type){
-       case 'LOGGED':
+        case 'LOGGED':
+            console.log(action.payload.token)
             return {
                 ...state,
-                usuario: action.payload
+                usuario: action.payload,
+                userLogged: action.payload,
+                token:  action.payload.token
             }
-
         case 'LOG_OUT':
             return{
                 ...initialState,

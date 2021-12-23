@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import itineraryAction from '../redux/actions/initineraryAction';
 import activitiesActions from "../redux/actions/activitiesActions"
